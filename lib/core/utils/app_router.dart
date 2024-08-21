@@ -8,9 +8,6 @@ abstract class AppRouter {
       path: "/",
       builder: (context, state) => const OnboardringView(),
     ),
-    GoRoute(
-      path: onBoarderingScreenView,
-      builder: (context, state) => const OnboardringView(),
-    )
+    
   ]);
 }
