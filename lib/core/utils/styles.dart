@@ -29,7 +29,4 @@ abstract class Styles {
     fontSize: 112,
     fontWeight: FontWeight.w600,
   );
-
-
-
 }

@@ -3,7 +3,6 @@ import "package:filmflicks/core/utils/app_router.dart";
 import "package:flutter/material.dart";
 import "package:google_fonts/google_fonts.dart";
 
-
 void main() {
   runApp(const FilmFlicks());
 }
@@ -13,11 +12,12 @@ class FilmFlicks extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return   MaterialApp.router(
-      routerConfig: AppRouter.router,
-      theme: ThemeData.dark().copyWith(textTheme: GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme))
-    );
+    return MaterialApp.router(
+        debugShowCheckedModeBanner: false,
+        routerConfig: AppRouter.router,
+        theme: ThemeData.dark(useMaterial3: true).copyWith(
+            scaffoldBackgroundColor: Colors.black,
+            textTheme:
+                GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme)));
   }
-  
-
 }
