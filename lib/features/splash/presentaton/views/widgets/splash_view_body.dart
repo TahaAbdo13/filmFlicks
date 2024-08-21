@@ -16,20 +16,14 @@ class _SplashViewBodyState extends State<SplashViewBody>
   late Animation<Offset> slidinTextAnimation;
   @override
   void initState() {
-    animationController =
-        AnimationController(vsync: this, duration: const Duration(seconds: 3));
-    slidinImageAnimation =
-        Tween<Offset>(begin: const Offset(10, 0), end: Offset.zero)
-            .animate(animationController);
-    slidinTextAnimation =
-        Tween<Offset>(begin: const Offset(-10, 0), end: Offset.zero)
-            .animate(animationController);
-    animationController.forward();
+    super.initState();
+    animationMethod();
   }
+
+  
 
   @override
   Widget build(BuildContext context) {
-    print("animation ");
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -56,5 +50,24 @@ class _SplashViewBodyState extends State<SplashViewBody>
         )
       ],
     );
+  }
+  void animationMethod() {
+    animationController =
+        AnimationController(vsync: this, duration: const Duration(seconds: 3));
+    slidingImageAnimationMethod();
+    slidinganTextAnimationMethod();
+    animationController.forward();
+  }
+
+  void slidingImageAnimationMethod() {
+    slidinImageAnimation =
+        Tween<Offset>(begin: const Offset(10, 0), end: Offset.zero)
+            .animate(animationController);
+  }
+
+  void slidinganTextAnimationMethod() {
+    slidinTextAnimation =
+        Tween<Offset>(begin: const Offset(-10, 0), end: Offset.zero)
+            .animate(animationController);
   }
 }
