@@ -25,11 +25,11 @@ class _SplashViewBodyState extends State<SplashViewBody>
         Tween<Offset>(begin: const Offset(-10, 0), end: Offset.zero)
             .animate(animationController);
     animationController.forward();
-    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    print("animation ");
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
