@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:filmflicks/core/utils/app_router.dart';
-import 'package:filmflicks/core/utils/styles.dart';
+
 import 'package:filmflicks/core/utils/widgets/custom_app_logo_widget.dart';
 import 'package:flutter/material.dart';
 
