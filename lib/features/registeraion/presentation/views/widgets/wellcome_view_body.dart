@@ -1,11 +1,8 @@
-import 'package:filmflicks/core/utils/constants.dart';
-import 'package:filmflicks/core/utils/styles.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'custom_circle_avatar.dart';
+
 import 'elvated_button_and_row_section.dart';
-import 'sign_up_wih_icon_row.dart';
-import 'sign_up_with_row.dart';
+
 import 'sign_up_with_section.dart';
 import 'wellcome_screen_logo_section.dart';
 
@@ -29,8 +26,10 @@ class WellcomeViewBody extends StatelessWidget {
         SizedBox(
           height: 32,
         ),
-        SignUpWithSection(),
-        
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 60.0),
+          child: SignUpWithSection(),
+        ),
       ],
     );
   }

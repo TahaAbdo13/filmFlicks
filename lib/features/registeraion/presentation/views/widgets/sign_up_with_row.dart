@@ -1,3 +1,4 @@
+import 'package:filmflicks/core/utils/constants.dart';
 import 'package:filmflicks/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
@@ -10,11 +11,11 @@ class SignUpWithRow extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         const Expanded(child: Divider()),
-        Expanded(
-            child: Text(
-          "  Or Sign up with",
-          style: Styles.h5.copyWith(fontWeight: FontWeight.w500),
-        )),
+        Text(
+          "  Or Sign up with  ",
+          style: Styles.h5
+              .copyWith(fontWeight: FontWeight.w500, color: kGreyColor),
+        ),
         const Expanded(child: Divider()),
       ],
     );

@@ -14,7 +14,7 @@ class CustomCircleAvatar extends StatelessWidget {
   Widget build(BuildContext context) {
     return CircleAvatar(
         backgroundColor: color,
-        radius: 40,
+        radius: 35,
         child: SvgPicture.asset(circleImage));
   }
 }
