@@ -9,19 +9,20 @@ class LoginViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   
-  var hieght = MediaQuery.of(context).size.height;
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
+
+    return const  Padding(
+      padding: EdgeInsets.all(8.0),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 14),
+        padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 14),
         child: Column(
           children: [
-            const CustomAppWidget(),
+            CustomAppWidget(),
             SizedBox(
-              height: hieght * .05,
+              height: 40,
             ),
-           const LoginViewBodyTextSection(),
+            LoginViewBodyTextSection(),
+            SizedBox(height: 60,),
+            
           ],
         ),
       ),
