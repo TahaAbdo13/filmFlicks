@@ -1,6 +1,6 @@
 import 'package:filmflicks/features/registeraion/presentation/views/widgets/custom_elevated_button.dart';
 import 'package:flutter/material.dart';
-import 'custom_app_widget.dart';
+import 'custom_appBar_widget.dart';
 
 import 'custom_text_field_section.dart';
 
@@ -20,7 +20,7 @@ class LoginViewBody extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 14),
         child: Column(
           children: [
-            CustomAppWidget(),
+            CustomAppBarWidget(title: 'Login',),
             SizedBox(
               height: 40,
             ),

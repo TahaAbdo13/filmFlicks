@@ -2,9 +2,10 @@ import 'package:filmflicks/features/registeraion/presentation/views/widgets/cust
 import 'package:filmflicks/features/registeraion/presentation/views/widgets/custom_back_button.dart';
 import 'package:flutter/material.dart';
 
-class CustomAppWidget extends StatelessWidget {
-  const CustomAppWidget({
-    super.key,
+class CustomAppBarWidget extends StatelessWidget {
+  final String title;
+  const CustomAppBarWidget({
+    super.key, required this.title,
   });
 
   @override
@@ -16,7 +17,7 @@ class CustomAppWidget extends StatelessWidget {
         SizedBox(
           width: width * .27,
         ),
-        const CustomAppBarTitle(title: "Login")
+         CustomAppBarTitle(title: title)
       ],
     );
   }
