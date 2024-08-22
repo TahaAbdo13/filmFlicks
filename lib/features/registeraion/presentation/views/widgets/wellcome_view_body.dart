@@ -5,6 +5,8 @@ class WellcomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(child: Scaffold());
+    return Column(children: [
+      
+    ],);
   }
 }
