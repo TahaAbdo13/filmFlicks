@@ -1,5 +1,5 @@
 import 'package:filmflicks/features/registeraion/presentation/views/widgets/custom_elevated_button.dart';
-import 'package:filmflicks/features/registeraion/presentation/views/widgets/wellcome_view_body.dart';
+
 import 'package:flutter/material.dart';
 
 import 'have_an_acount_row.dart';
