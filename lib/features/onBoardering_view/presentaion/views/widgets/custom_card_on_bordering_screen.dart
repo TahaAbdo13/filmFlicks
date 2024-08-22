@@ -36,8 +36,8 @@ class CustomCardOnBorderingScreen extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: Styles.h3,
-                  maxLines: 3,
+                  style: Styles.h4,
+                  maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   textAlign: TextAlign.center,
                 ),

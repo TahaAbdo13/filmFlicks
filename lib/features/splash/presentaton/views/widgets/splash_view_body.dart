@@ -1,6 +1,10 @@
+import 'dart:async';
+
+import 'package:filmflicks/core/utils/app_router.dart';
 import 'package:filmflicks/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -16,11 +20,17 @@ class _SplashViewBodyState extends State<SplashViewBody>
   late Animation<Offset> slidinTextAnimation;
   @override
   void initState() {
-    super.initState();
+        super.initState();
+    navigatorMethod();
+
     animationMethod();
   }
 
-  
+  void navigatorMethod() {
+     Timer(const Duration(seconds: 5), () {
+      GoRouter.of(context).go(AppRouter.onBoarderingScreenView);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,6 +61,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
       ],
     );
   }
+
   void animationMethod() {
     animationController =
         AnimationController(vsync: this, duration: const Duration(seconds: 3));

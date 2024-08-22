@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomCardRowOnBoarderingScreen extends StatelessWidget {
-    final int currentIndex;
+  final int currentIndex;
   final PageController pageController;
   final String next;
   const CustomCardRowOnBoarderingScreen({
     super.key,
-    required this.pageController, required this.next, required this.currentIndex,
+    required this.pageController,
+    required this.next,
+    required this.currentIndex,
   });
 
   @override
@@ -16,17 +18,20 @@ class CustomCardRowOnBoarderingScreen extends StatelessWidget {
     return Expanded(
       child: Row(
         children: [
-           Expanded(
+          Expanded(
             child: SizedBox(
               height: 7,
-              child: CustomListViewBuilderCardOnBorderingScreen(pageController:pageController, currentIndex: currentIndex ,),
+              child: CustomListViewBuilderCardOnBorderingScreen(
+                pageController: pageController,
+                currentIndex: currentIndex,
+              ),
             ),
           ),
           const Spacer(),
           InkWell(
             onTap: () {
               pageController.nextPage(
-                  duration: const Duration(seconds: 1), curve: Curves.bounceIn);
+                  duration: const Duration(seconds: 1), curve: Curves.easeIn);
             },
             child: SvgPicture.asset(
               next,
