@@ -2,8 +2,11 @@ import 'package:filmflicks/features/onBoardering_view/presentaion/views/widgets/
 import 'package:flutter/material.dart';
 
 class CustomListViewBuilderCardOnBorderingScreen extends StatelessWidget {
+  final PageController pageController;
+  final int currentIndex;
   const CustomListViewBuilderCardOnBorderingScreen({
     super.key,
+    required this.pageController, required this.currentIndex,
   });
 
   @override
@@ -13,7 +16,9 @@ class CustomListViewBuilderCardOnBorderingScreen extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemCount: 3,
         itemBuilder: (context, i) {
-          return const CustomListViewBuilderItemOnBoarderingScreen();
+          return CustomListViewBuilderItemOnBoarderingScreen(
+            isActive: currentIndex == i ? true : false,
+          );
         });
   }
 }

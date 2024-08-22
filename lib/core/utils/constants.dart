@@ -8,4 +8,5 @@ const Color kGreyColor = Colors.grey;
 const Color kWhiteGrey = Color(0xffEBEBEF);
 const Color kDarkGrey = Color(0xffEBEBEF);
 const Color kLineDark = Color(0xffEAEAEA);
-const Color kSoft = Color(0xff1F1D2B);
+const Color kCardColor = Color(0xff1F1D2B);
+const Color kSoft = Color(0xff252836);
