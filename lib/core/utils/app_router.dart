@@ -2,7 +2,6 @@ import 'package:filmflicks/features/onBoardering_view/presentaion/views/onBoardr
 import 'package:filmflicks/features/registeraion/presentation/views/login_view.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/wellcome_view.dart';
 
-
 import 'package:go_router/go_router.dart';
 
 abstract class AppRouter {
@@ -13,7 +12,7 @@ abstract class AppRouter {
   static final GoRouter router = GoRouter(routes: [
     GoRoute(
       path: "/",
-      builder: (context, state) => const WellcomeView(),
+      builder: (context, state) => const LoginView(),
     ),
     GoRoute(
       path: onBoarderingScreenView,
