@@ -1,3 +1,4 @@
+import 'package:filmflicks/core/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 import 'widgets/wellcome_view_body.dart';
@@ -7,7 +8,8 @@ class WellcomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const  Scaffold(
+    return const Scaffold(
+      backgroundColor: kCardColor,
       body: WellcomeViewBody(),
     );
   }
