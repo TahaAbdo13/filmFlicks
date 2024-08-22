@@ -12,7 +12,7 @@ class LoginViewBodyTextSection extends StatelessWidget {
     return Column(
       children: [
         Text(
-          "Hi,Tiffany",
+          "Hi, Tiffany",
           style: Styles.h2.copyWith(color: Colors.white),
         ),
         const SizedBox(

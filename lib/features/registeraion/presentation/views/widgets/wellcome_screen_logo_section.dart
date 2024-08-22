@@ -1,4 +1,4 @@
-import 'package:filmflicks/core/utils/constants.dart';
+
 import 'package:filmflicks/core/utils/styles.dart';
 import 'package:filmflicks/core/utils/widgets/custom_app_logo_widget.dart';
 import 'package:filmflicks/core/utils/widgets/custom_app_name_widget.dart';
@@ -11,13 +11,13 @@ class WellcomeScreenLogoSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
       children: [
-        const CustomAppLogoWidget(),
-        const CustomAppNameWidget(),
+        CustomAppLogoWidget(),
+        CustomAppNameWidget(),
         Text(
           "Enter your registered Phone Number to Sign Up",
-          style: Styles.h5.copyWith(color: kGreyColor),
+          style: Styles.h5,
           textAlign: TextAlign.center,
         )
       ],

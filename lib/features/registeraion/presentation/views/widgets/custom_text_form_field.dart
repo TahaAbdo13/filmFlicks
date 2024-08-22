@@ -12,7 +12,7 @@ class CustomTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      style: Styles.h6.copyWith(color: kGreyColor),
+      style: Styles.h6,
       decoration: InputDecoration(
         labelText: label,
         labelStyle: Styles.h6.copyWith(color: kWhiteGrey),
