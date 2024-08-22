@@ -15,7 +15,7 @@ class CustomListViewBuilderItemOnBoarderingScreen extends StatelessWidget {
       child: isActive == true
           ? Container(
               height: 8,
-              width: 20,
+              width: 30,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(6),
                 color: kPrimaryColor,

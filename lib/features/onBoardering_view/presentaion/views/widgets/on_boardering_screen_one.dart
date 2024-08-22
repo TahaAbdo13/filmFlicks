@@ -3,20 +3,21 @@ import 'package:flutter/material.dart';
 
 class OnBoarderingScreenOne extends StatelessWidget {
   final String next;
-    final int currentIndex;
-      final String title;
+  final int currentIndex;
+  final String title;
 
-    final PageController pageController;
+  final PageController pageController;
   const OnBoarderingScreenOne({
-    super.key, required this.pageController, required this.next, required this.currentIndex, required this.title,
-  
+    super.key,
+    required this.pageController,
+    required this.next,
+    required this.currentIndex,
+    required this.title,
   });
-
- 
 
   @override
   Widget build(BuildContext context) {
-     var hieght = MediaQuery.of(context).size.height;
+    var hieght = MediaQuery.of(context).size.height;
     return Stack(
       children: [
         Container(
@@ -26,8 +27,16 @@ class OnBoarderingScreenOne extends StatelessWidget {
                   image: AssetImage("assets/images/Image.png"),
                   fit: BoxFit.fill)),
         ),
-         Positioned(
-            left: 57, bottom: 24, child: CustomCardOnBorderingScreen(pageController: pageController, next: next, currentIndex: currentIndex, title: title,))
+        Positioned(
+            left: 30,
+            right: 30,
+            bottom: 24,
+            child: CustomCardOnBorderingScreen(
+              pageController: pageController,
+              next: next,
+              currentIndex: currentIndex,
+              title: title,
+            ))
       ],
     );
   }
