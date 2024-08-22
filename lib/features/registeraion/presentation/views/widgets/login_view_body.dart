@@ -1,6 +1,8 @@
 import 'package:filmflicks/core/utils/constants.dart';
+import 'package:filmflicks/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
+import 'custom_app_bar_title.dart';
 import 'custom_back_button.dart';
 
 class LoginViewBody extends StatelessWidget {
@@ -8,13 +10,18 @@ class LoginViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding:  EdgeInsets.all(8.0),
+    var width = MediaQuery.of(context).size.width;
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
       child: Column(
         children: [
           Row(
             children: [
-              CustomBackButton()
+              const CustomBackButton(),
+              SizedBox(
+                width: width * .35,
+              ),
+             const CustomAppBarTitle( title: "Login")
             ],
           )
         ],
