@@ -9,18 +9,18 @@ class CustomBackButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){},
+      onTap: () {},
       child: Container(
         alignment: AlignmentDirectional.center,
-        height: 40,
-        width: 40,
+        height: 30,
+        width: 30,
         decoration: BoxDecoration(
           color: kSoft,
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(12),
         ),
         child: const Icon(
           Icons.arrow_back_ios,
-          size: 22,
+          size: 15,
         ),
       ),
     );

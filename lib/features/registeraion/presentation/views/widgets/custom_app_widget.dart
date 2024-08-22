@@ -5,19 +5,16 @@ import 'package:flutter/material.dart';
 class CustomAppWidget extends StatelessWidget {
   const CustomAppWidget({
     super.key,
-   
   });
-
- 
 
   @override
   Widget build(BuildContext context) {
-     var width = MediaQuery.of(context).size.width;
+    var width = MediaQuery.of(context).size.width;
     return Row(
       children: [
         const CustomBackButton(),
         SizedBox(
-          width: width * .32,
+          width: width * .27,
         ),
         const CustomAppBarTitle(title: "Login")
       ],
