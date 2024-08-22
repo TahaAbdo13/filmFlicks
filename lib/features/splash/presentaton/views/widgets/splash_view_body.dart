@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:filmflicks/core/utils/app_router.dart';
 import 'package:filmflicks/core/utils/styles.dart';
+import 'package:filmflicks/core/utils/widgets/custom_app_logo_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
@@ -41,11 +42,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
           alignment: Alignment.center,
           child: SlideTransition(
             position: slidinImageAnimation,
-            child: SvgPicture.asset(
-              "assets/images/appLogo.svg",
-              height: 170,
-              width: 170,
-            ),
+            child:const CustomAppLogoWidget(),
           ),
         ),
         const SizedBox(
@@ -82,3 +79,5 @@ class _SplashViewBodyState extends State<SplashViewBody>
             .animate(animationController);
   }
 }
+
+

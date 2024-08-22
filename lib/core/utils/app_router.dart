@@ -11,7 +11,7 @@ abstract class AppRouter {
   static final GoRouter router = GoRouter(routes: [
     GoRoute(
       path: "/",
-      builder: (context, state) => const SplashView(),
+      builder: (context, state) => const WellcomeView(),
     ),
     GoRoute(
       path: onBoarderingScreenView,
