@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'custom_circle_avatar.dart';
 import 'elvated_button_and_row_section.dart';
+import 'sign_up_wih_icon_row.dart';
 import 'sign_up_with_row.dart';
+import 'sign_up_with_section.dart';
 import 'wellcome_screen_logo_section.dart';
 
 class WellcomeViewBody extends StatelessWidget {
@@ -27,34 +29,9 @@ class WellcomeViewBody extends StatelessWidget {
         SizedBox(
           height: 32,
         ),
-        SignUpWithRow(),
-        SizedBox(
-          height: 40,
-        ),
-        SignUpWihIconRow()
+        SignUpWithSection(),
+        
       ],
     );
-  }
-}
-
-class SignUpWihIconRow extends StatelessWidget {
-  const SignUpWihIconRow({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-      const CustomCircleAvatar(
-        color: kWhiteColor,
-        circleImage: 'assets/images/Icon - Google.svg',
-      ),
-      const CustomCircleAvatar(
-        color: kSoft,
-        circleImage: 'assets/images/Icon - Apple.svg',
-      ),
-      CustomCircleAvatar(
-        color: Colors.blue.withOpacity(0.6),
-        circleImage: 'assets/images/Icon - Facebook.svg',
-      ),
-    ]);
   }
 }
