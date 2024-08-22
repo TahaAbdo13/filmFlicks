@@ -1,10 +1,9 @@
-import 'package:filmflicks/core/utils/constants.dart';
-import 'package:filmflicks/core/utils/styles.dart';
+import 'package:filmflicks/features/registeraion/presentation/views/widgets/custom_elevated_button.dart';
 import 'package:flutter/material.dart';
 import 'custom_app_widget.dart';
-import 'custom_text_button.dart';
+
 import 'custom_text_field_section.dart';
-import 'custom_text_form_field.dart';
+
 import 'login_view_body_text_section.dart';
 
 class LoginViewBody extends StatelessWidget {
@@ -12,21 +11,35 @@ class LoginViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var hieght = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
+
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: EdgeInsets.all(8.0),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 14),
+        padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 14),
         child: Column(
           children: [
-            const CustomAppWidget(),
-            const SizedBox(
+            CustomAppWidget(),
+            SizedBox(
               height: 40,
             ),
-            const LoginViewBodyTextSection(),
-            const SizedBox(
+            LoginViewBodyTextSection(),
+            SizedBox(
               height: 60,
             ),
             CustomTextFieldSection(),
+            SizedBox(
+              height: 60,
+            ),
+            SizedBox(
+              width: width,
+              height: hieght * 0.075,
+              child: CustomElevatedButton(
+                onPressed: () {},
+                text: 'Login',
+              ),
+            )
           ],
         ),
       ),

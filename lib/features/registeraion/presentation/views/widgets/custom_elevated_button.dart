@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 
 class CustomElevatedButton extends StatelessWidget {
   final void Function() onPressed;
+  final String text;
   const CustomElevatedButton({
-    super.key, required this.onPressed,
+    super.key,
+    required this.onPressed, required this.text,
   });
 
   @override
@@ -14,7 +16,7 @@ class CustomElevatedButton extends StatelessWidget {
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(backgroundColor: kPrimaryColor),
       child: Text(
-        "Sign Up",
+        text,
         style: Styles.h4.copyWith(color: Colors.white),
       ),
     );

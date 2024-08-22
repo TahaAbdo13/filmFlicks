@@ -12,22 +12,18 @@ class CustomTextFieldSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
-        Column(
-          children: [
-            const CustomTextFormField(
-              label: 'Email Address',
-            ),
-            const SizedBox(
-              height: 24,
-            ),
-            const CustomTextFormField(
-              label: 'Password',
-            ),
-            CustomTextButton(
-              onPressed: () {},
-              text: 'Forgot Password?',
-            )
-          ],
+        const CustomTextFormField(
+          label: 'Email Address',
+        ),
+        const SizedBox(
+          height: 24,
+        ),
+        const CustomTextFormField(
+          label: 'Password',
+        ),
+        CustomTextButton(
+          onPressed: () {},
+          text: 'Forgot Password?',
         ),
       ],
     );
