@@ -4,8 +4,10 @@ import 'package:filmflicks/core/utils/app_router.dart';
 import 'package:filmflicks/core/utils/styles.dart';
 import 'package:filmflicks/core/utils/widgets/custom_app_logo_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+
 import 'package:go_router/go_router.dart';
+
+import '../../../../../core/utils/widgets/custom_app_name_widget.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -50,10 +52,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
         ),
         SlideTransition(
           position: slidinTextAnimation,
-          child: const Text(
-            "FILM FLICKS",
-            style: Styles.h1,
-          ),
+          child:const CustomAppNameWidget(),
         )
       ],
     );
@@ -79,5 +78,3 @@ class _SplashViewBodyState extends State<SplashViewBody>
             .animate(animationController);
   }
 }
-
-
