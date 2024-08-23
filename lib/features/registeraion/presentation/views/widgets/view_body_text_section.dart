@@ -2,8 +2,9 @@ import 'package:filmflicks/core/utils/constants.dart';
 import 'package:filmflicks/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
-class LoginViewBodyTextSection extends StatelessWidget {
-  const LoginViewBodyTextSection({
+class ViewBodyTextSection extends StatelessWidget {
+  
+  const ViewBodyTextSection({
     super.key,
   });
 

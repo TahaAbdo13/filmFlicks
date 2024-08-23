@@ -4,7 +4,7 @@ import 'custom_appBar_widget.dart';
 
 import 'custom_text_field_section.dart';
 
-import 'login_view_body_text_section.dart';
+import 'view_body_text_section.dart';
 
 class LoginViewBody extends StatelessWidget {
   const LoginViewBody({super.key});
@@ -24,7 +24,7 @@ class LoginViewBody extends StatelessWidget {
             const SizedBox(
               height: 40,
             ),
-            const LoginViewBodyTextSection(),
+              ViewBodyTextSection(),
             const SizedBox(
               height: 60,
             ),
