@@ -1,11 +1,14 @@
-import 'package:filmflicks/core/utils/constants.dart';
-import 'package:filmflicks/core/utils/styles.dart';
+
 import 'package:flutter/material.dart';
 
 class ViewBodyTextSection extends StatelessWidget {
-  
+  final String title1, title2;
+  final TextStyle style1, style2;
+
   const ViewBodyTextSection({
     super.key,
+    required this.title1,
+    required this.title2, required this.style1, required this.style2,
   });
 
   @override
@@ -13,15 +16,15 @@ class ViewBodyTextSection extends StatelessWidget {
     return Column(
       children: [
         Text(
-          "Hi, Tiffany",
-          style: Styles.h2.copyWith(color: Colors.white),
+          title1,
+          style: style1
         ),
         const SizedBox(
           height: 8,
         ),
         Text(
-          "Welcome back! Please enter your details.",
-          style: Styles.h6.copyWith(color: kWhiteGrey),
+          title2,
+          style:style2,
         )
       ],
     );
