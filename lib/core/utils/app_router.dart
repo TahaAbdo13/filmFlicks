@@ -1,4 +1,5 @@
 import 'package:filmflicks/features/onBoardering_view/presentaion/views/onBoardring_view.dart';
+import 'package:filmflicks/features/registeraion/presentation/views/create_new_password.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/login_view.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/reset_password_view.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/sign_up_view.dart';
@@ -13,11 +14,13 @@ abstract class AppRouter {
   static const signView = "/signView";
   static const resetPasswordView = "/resetPasswordView";
   static const verifyingView = "/verifyingViewBody";
+  static const createNewPasswordview = "/createNewPassowrdView";
+
 
   static final GoRouter router = GoRouter(routes: [
     GoRoute(
       path: "/",
-      builder: (context, state) => const VerifyingView(),
+      builder: (context, state) => const CreateNewPasswordView(),
     ),
     GoRoute(
       path: onBoarderingScreenView,
