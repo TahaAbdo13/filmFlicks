@@ -1,5 +1,6 @@
 import 'package:filmflicks/features/onBoardering_view/presentaion/views/onBoardring_view.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/login_view.dart';
+import 'package:filmflicks/features/registeraion/presentation/views/reset_password_view.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/sign_up_view.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/wellcome_view.dart';
 
@@ -10,11 +11,12 @@ abstract class AppRouter {
   static const wellcomeView = "/wellcomeview";
   static const loginView = "/loginView";
   static const signView = "/signView";
+  static const resetPasswordView = "/resetPasswordView";
 
   static final GoRouter router = GoRouter(routes: [
     GoRoute(
       path: "/",
-      builder: (context, state) => const SignUpView(),
+      builder: (context, state) => const ResetPasswordView(),
     ),
     GoRoute(
       path: onBoarderingScreenView,
