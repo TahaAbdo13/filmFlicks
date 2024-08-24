@@ -1,5 +1,6 @@
 import 'package:filmflicks/core/utils/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class CustomBackButton extends StatelessWidget {
   const CustomBackButton({
@@ -9,7 +10,9 @@ class CustomBackButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        GoRouter.of(context).pop();
+      },
       child: Container(
         alignment: AlignmentDirectional.center,
         height: 30,

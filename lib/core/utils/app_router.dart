@@ -5,46 +5,51 @@ import 'package:filmflicks/features/registeraion/presentation/views/reset_passwo
 import 'package:filmflicks/features/registeraion/presentation/views/sign_up_view.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/verifying_view.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/wellcome_view.dart';
+import 'package:filmflicks/features/splash/presentaton/views/splash_view.dart';
 import 'package:go_router/go_router.dart';
 
 abstract class AppRouter {
-  static const onBoarderingScreenView = "/OnBoardringScreenView";
-  static const wellcomeView = "/wellcomeview";
-  static const loginView = "/loginView";
-  static const signView = "/signView";
-  static const resetPasswordView = "/resetPasswordView";
-  static const verifyingView = "/verifyingViewBody";
-  static const createNewPasswordview = "/createNewPassowrdView";
+  static const kOnBoarderingScreenView = "/OnBoardringScreenView";
+  static const kWellcomeView = "/wellcomeview";
+  static const kLoginView = "/loginView";
+  static const kSignView = "/signView";
+  static const kResetPasswordView = "/resetPasswordView";
+  static const kVerifyingView = "/verifyingViewBody";
+  static const kCreateNewPasswordview = "/createNewPassowrdView";
 
 
   static final GoRouter router = GoRouter(routes: [
     GoRoute(
       path: "/",
-      builder: (context, state) => const CreateNewPasswordView(),
+      builder: (context, state) => const SplashView(),
     ),
     GoRoute(
-      path: onBoarderingScreenView,
+      path: kOnBoarderingScreenView,
       builder: (context, state) => const OnboardringView(),
     ),
     GoRoute(
-      path: wellcomeView,
+      path: kWellcomeView,
       builder: (context, state) => const WellcomeView(),
     ),
     GoRoute(
-      path: loginView,
+      path: kLoginView,
       builder: (context, state) => const LoginView(),
     ),
     GoRoute(
-      path: signView,
+      path: kSignView,
       builder: (context, state) => const SignUpView(),
     ),
     GoRoute(
-      path: verifyingView,
+      path: kVerifyingView,
       builder: (context, state) => const VerifyingView(),
     ),
     GoRoute(
-      path: resetPasswordView,
+      path: kResetPasswordView,
       builder: (context, state) => const ResetPasswordView(),
+    ),
+    GoRoute(
+      path: kCreateNewPasswordview,
+      builder: (context, state) => const CreateNewPasswordView(),
     ),
   ]);
 }

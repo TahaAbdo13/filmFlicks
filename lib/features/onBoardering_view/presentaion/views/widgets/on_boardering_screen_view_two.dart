@@ -2,13 +2,14 @@ import 'package:filmflicks/features/onBoardering_view/presentaion/views/widgets/
 import 'package:flutter/material.dart';
 
 class OnBoarderingScreenTow extends StatelessWidget {
+  final bool isLastPage;
     final int currentIndex;
       final String title;
   final String image;
   final String next;
 
     final PageController pageController;
-  const OnBoarderingScreenTow({super.key, required this.image, required this.pageController, required this.next, required this.currentIndex, required this.title});
+  const OnBoarderingScreenTow({super.key, required this.image, required this.pageController, required this.next, required this.currentIndex, required this.title, required this.isLastPage});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +28,7 @@ class OnBoarderingScreenTow extends StatelessWidget {
           const SizedBox(
             height: 30,
           ),
-           CustomCardOnBorderingScreen(pageController: pageController, next: next, currentIndex: currentIndex, title: title,),
+           CustomCardOnBorderingScreen(pageController: pageController, next: next, currentIndex: currentIndex, title: title, isLastPage: isLastPage,),
         ],
       ),
     );

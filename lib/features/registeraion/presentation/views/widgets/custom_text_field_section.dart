@@ -1,6 +1,8 @@
+import 'package:filmflicks/core/utils/app_router.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/widgets/custom_text_button.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class CustomTextFieldSection extends StatelessWidget {
   const CustomTextFieldSection({
@@ -22,7 +24,9 @@ class CustomTextFieldSection extends StatelessWidget {
           label: 'Password',
         ),
         CustomTextButton(
-          onPressed: () {},
+          onPressed: () {
+            GoRouter.of(context).push(AppRouter.kResetPasswordView);
+          },
           text: 'Forgot Password?',
         ),
       ],

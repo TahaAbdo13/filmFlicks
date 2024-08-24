@@ -2,6 +2,7 @@ import 'package:filmflicks/features/onBoardering_view/presentaion/views/widgets/
 import 'package:flutter/material.dart';
 
 class OnBoarderingScreenOne extends StatelessWidget {
+  final bool isLastPage;
   final String next;
   final int currentIndex;
   final String title;
@@ -12,7 +13,7 @@ class OnBoarderingScreenOne extends StatelessWidget {
     required this.pageController,
     required this.next,
     required this.currentIndex,
-    required this.title,
+    required this.title, required this.isLastPage,
   });
 
   @override
@@ -35,7 +36,7 @@ class OnBoarderingScreenOne extends StatelessWidget {
               pageController: pageController,
               next: next,
               currentIndex: currentIndex,
-              title: title,
+              title: title, isLastPage: isLastPage,
             ))
       ],
     );

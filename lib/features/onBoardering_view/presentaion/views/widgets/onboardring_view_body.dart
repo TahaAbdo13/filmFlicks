@@ -13,6 +13,7 @@ class OnboardringViewBody extends StatefulWidget {
 class _OnboardringViewBodyState extends State<OnboardringViewBody> {
   final PageController pageController = PageController();
   int currentIndex = 0;
+  bool isLastPage = false;
   @override
   Widget build(BuildContext context) {
     return PageView(
@@ -21,6 +22,11 @@ class _OnboardringViewBodyState extends State<OnboardringViewBody> {
         setState(() {
           currentIndex = value;
         });
+        if (currentIndex == 2) {
+          setState(() {
+            isLastPage = true;
+          });
+        }
       },
       children: [
         OnBoarderingScreenOne(
@@ -28,6 +34,7 @@ class _OnboardringViewBodyState extends State<OnboardringViewBody> {
           next: "assets/images/Next.svg",
           currentIndex: currentIndex,
           title: "Lorem ipsum dolor sit amet consecteur esplicit",
+          isLastPage: isLastPage,
         ),
         OnBoarderingScreenTow(
           image: "assets/images/Image2.png",
@@ -35,6 +42,7 @@ class _OnboardringViewBodyState extends State<OnboardringViewBody> {
           next: "assets/images/Next2.svg",
           currentIndex: currentIndex,
           title: 'Offers ad-free viewing of high quality',
+          isLastPage: isLastPage,
         ),
         OnBoarderingScreenTow(
           image: "assets/images/Image3.png",
@@ -42,6 +50,7 @@ class _OnboardringViewBodyState extends State<OnboardringViewBody> {
           next: "assets/images/Next3.svg",
           currentIndex: currentIndex,
           title: 'Our service brings together your favorite series',
+          isLastPage: isLastPage,
         )
       ],
     );

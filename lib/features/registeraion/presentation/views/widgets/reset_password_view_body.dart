@@ -1,9 +1,11 @@
+import 'package:filmflicks/core/utils/app_router.dart';
 import 'package:filmflicks/core/utils/styles.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/widgets/custom_appBar_widget.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/widgets/custom_elevated_button.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/widgets/custom_text_form_field.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/widgets/view_body_text_section.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class ResetPasswordViewBody extends StatelessWidget {
   const ResetPasswordViewBody({super.key});
@@ -35,7 +37,11 @@ class ResetPasswordViewBody extends StatelessWidget {
           SizedBox(
               width: width,
               height: hieght * 0.075,
-              child: CustomElevatedButton(onPressed: () {}, text: "Next"))
+              child: CustomElevatedButton(
+                  onPressed: () {
+                    GoRouter.of(context).push(AppRouter.kCreateNewPasswordview);
+                  },
+                  text: "Next"))
         ],
       ),
     );

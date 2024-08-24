@@ -31,7 +31,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
   void navigatorMethod() {
      Timer(const Duration(seconds: 5), () {
-      GoRouter.of(context).go(AppRouter.onBoarderingScreenView);
+      GoRouter.of(context).go(AppRouter.kOnBoarderingScreenView);
     });
   }
 

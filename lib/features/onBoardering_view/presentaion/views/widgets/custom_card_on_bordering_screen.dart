@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'custom_card_row_on_boardering_screen.dart';
 
 class CustomCardOnBorderingScreen extends StatelessWidget {
+  final bool isLastPage;
   final String title;
   final int currentIndex;
   final String next;
@@ -15,7 +16,7 @@ class CustomCardOnBorderingScreen extends StatelessWidget {
     required this.pageController,
     required this.next,
     required this.currentIndex,
-    required this.title,
+    required this.title, required this.isLastPage,
   });
 
   @override
@@ -56,6 +57,7 @@ class CustomCardOnBorderingScreen extends StatelessWidget {
                   height: 20,
                 ),
                 CustomCardRowOnBoarderingScreen(
+                  isLastPage: isLastPage,
                   pageController: pageController,
                   next: next,
                   currentIndex: currentIndex,

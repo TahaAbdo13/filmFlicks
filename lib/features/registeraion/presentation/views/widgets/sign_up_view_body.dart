@@ -1,3 +1,4 @@
+import 'package:filmflicks/core/utils/app_router.dart';
 import 'package:filmflicks/core/utils/constants.dart';
 import 'package:filmflicks/core/utils/styles.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/widgets/custom_appBar_widget.dart';
@@ -5,6 +6,7 @@ import 'package:filmflicks/features/registeraion/presentation/views/widgets/cust
 import 'package:filmflicks/features/registeraion/presentation/views/widgets/custom_text_form_field.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/widgets/view_body_text_section.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'custom_privacy_row.dart';
 
 class SignUpViewBody extends StatelessWidget {
@@ -47,7 +49,11 @@ class SignUpViewBody extends StatelessWidget {
           SizedBox(
               width: width,
               height: hieght * 0.075,
-              child: CustomElevatedButton(onPressed: () {}, text: "Sign Up"))
+              child: CustomElevatedButton(
+                  onPressed: () {
+                    GoRouter.of(context).push(AppRouter.kLoginView);
+                  },
+                  text: "Sign Up"))
         ],
       ),
     );
