@@ -1,3 +1,5 @@
+import 'package:filmflicks/core/utils/constants.dart';
+import 'package:filmflicks/core/utils/styles.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/widgets/custom_elevated_button.dart';
 import 'package:flutter/material.dart';
 import 'custom_appBar_widget.dart';
@@ -24,7 +26,7 @@ class LoginViewBody extends StatelessWidget {
             const SizedBox(
               height: 40,
             ),
-              ViewBodyTextSection(),
+              ViewBodyTextSection(title1: 'Hi, Tiffany', style1: Styles.h2, title2: '"Welcome back! Please enter your details."', style2:  Styles.h6.copyWith(color: kWhiteGrey),),
             const SizedBox(
               height: 60,
             ),
