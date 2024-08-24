@@ -25,7 +25,7 @@ class CustomTextFieldSection extends StatelessWidget {
         ),
         CustomTextButton(
           onPressed: () {
-            GoRouter.of(context).push(AppRouter.kResetPasswordView);
+            GoRouter.of(context).push(AppRouter.kVerifyingView);
           },
           text: 'Forgot Password?',
         ),
