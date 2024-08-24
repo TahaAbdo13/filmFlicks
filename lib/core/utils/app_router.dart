@@ -1,11 +1,9 @@
 import 'package:filmflicks/features/onBoardering_view/presentaion/views/onBoardring_view.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/login_view.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/reset_password_view.dart';
-
 import 'package:filmflicks/features/registeraion/presentation/views/sign_up_view.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/verifying_view.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/wellcome_view.dart';
-
 import 'package:go_router/go_router.dart';
 
 abstract class AppRouter {
