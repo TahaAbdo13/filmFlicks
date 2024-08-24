@@ -18,7 +18,7 @@ class SignUpViewBody extends StatelessWidget {
       child: Column(
         children: [
           const CustomAppBarWidget(
-            title: 'Sugn Up',
+            title: 'Sign Up',
           ),
           const SizedBox(
             height: 40,
