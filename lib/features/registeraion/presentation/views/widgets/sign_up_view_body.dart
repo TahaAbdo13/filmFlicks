@@ -8,7 +8,6 @@ import 'package:filmflicks/features/registeraion/presentation/views/widgets/view
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'custom_privacy_row.dart';
-
 class SignUpViewBody extends StatelessWidget {
   const SignUpViewBody({super.key});
   @override
