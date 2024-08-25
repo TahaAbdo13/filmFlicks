@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "399680220385",
+    "project_id": "filmflicks-cea0e",
+    "storage_bucket": "filmflicks-cea0e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:399680220385:android:6667dac23c291defcedba0",
+        "android_client_info": {
+          "package_name": "film.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZsce9Gr0VM3xlxE7GXXq75hKEcEdVOyY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
