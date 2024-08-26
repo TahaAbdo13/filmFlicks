@@ -6,11 +6,11 @@ import 'package:filmflicks/core/success/success.dart';
 import 'package:filmflicks/features/registeraion/data/repository/sign_up_repo.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 class SignUpRepoimple implements SignUpRepo {
-  FirebaseAuth firebaseAuth = FirebaseAuth.instance;
-  FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+  // FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+  // FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
   @override
   Future<Either<Failure, Success>> signUp(
-      {required  userModel}) async {
+      {required  userModel,required FirebaseAuth firebaseAuth,required FirebaseFirestore firebaseFirestore}) async {
     try {
       await firebaseAuth.createUserWithEmailAndPassword(
           email: userModel.emailAddress, password: userModel.password);

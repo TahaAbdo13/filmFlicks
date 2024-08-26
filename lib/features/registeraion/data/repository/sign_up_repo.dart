@@ -7,6 +7,6 @@ import 'package:filmflicks/core/success/success.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 abstract class SignUpRepo {
-  Future<Either<Failure, Success>> signUp({required UserModel userModel,required FirebaseAuth firebaseAuthe,required FirebaseFirestore firebaseFirestor});
+  Future<Either<Failure, Success>> signUp({required UserModel userModel,required FirebaseAuth firebaseAuth,required FirebaseFirestore firebaseFirestore});
   
 }
