@@ -19,7 +19,4 @@ class AuthError extends Failure{
   }
 
 }
-class FirebaseExeptions extends Failure{
-  FirebaseExeptions(super.errMessage);
 
-}
