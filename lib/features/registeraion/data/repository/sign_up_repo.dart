@@ -6,4 +6,5 @@ import 'package:filmflicks/core/success/success.dart';
 
 abstract class SignUpRepo {
   Future<Either<Failure, Success>> signUp({required UserModel userModel});
+  
 }
