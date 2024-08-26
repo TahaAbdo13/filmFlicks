@@ -10,7 +10,7 @@ class SignUpRepoimple implements SignUpRepo {
   FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
   @override
   Future<Either<Failure, Success>> signUp(
-      {required UserModel userModel}) async {
+      {required  userModel}) async {
     try {
       await firebaseAuth.createUserWithEmailAndPassword(
           email: userModel.emailAddress, password: userModel.password);
@@ -20,15 +20,16 @@ class SignUpRepoimple implements SignUpRepo {
           password: userModel.password);
       await firebaseFirestore
           .collection("users")
-          .doc()
+          .doc(firebaseAuth.currentUser!.uid)
           .set(userModel.convertModelTOMap(userModel: userModel));
       return right(
           Success(successMessage: "Your Acount is Created Successfully"));
     } catch (e) {
       if (e is FirebaseAuthException) {
-        return left(ServerError.firebaseAuhtExeption(e));
-      } else {
-        return left(ServerError("There was an Error Now, Please try again!"));
+        return left(AuthError.firebaseAuhtExeption(e));
+      } 
+      else {
+        return left(AuthError("There was an Error Now, Please try again!"));
       }
     }
   }

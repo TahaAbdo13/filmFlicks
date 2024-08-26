@@ -6,16 +6,20 @@ abstract class Failure {
   Failure(this.errMessage);
 
 }
-class ServerError extends Failure{
-  ServerError(super.errMessage);
-  factory ServerError.firebaseAuhtExeption(FirebaseAuthException firebaseAuthExeption){
+class AuthError extends Failure{
+  AuthError(super.errMessage);
+  factory AuthError.firebaseAuhtExeption(FirebaseAuthException firebaseAuthExeption){
     if (firebaseAuthExeption.code == 'weak-password') {
-  return ServerError('The password provided is too weak.');
+  return AuthError('The password provided is too weak.');
   } else if (firebaseAuthExeption.code == 'email-already-in-use') {
-    return ServerError('The account already exists for that email.');
+    return AuthError('The account already exists for that email.');
   }else{
-    return ServerError(firebaseAuthExeption.message!);
+    return AuthError(firebaseAuthExeption.message!);
   }
   }
+
+}
+class FirebaseExeptions extends Failure{
+  FirebaseExeptions(super.errMessage);
 
 }
