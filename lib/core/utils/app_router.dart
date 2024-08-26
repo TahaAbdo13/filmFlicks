@@ -1,4 +1,6 @@
 import 'package:filmflicks/features/onBoardering_view/presentaion/views/onBoardring_view.dart';
+import 'package:filmflicks/features/registeraion/data/repository/sign_up_repoimple.dart';
+import 'package:filmflicks/features/registeraion/presentation/manager/sign_in_cubit/sign_in_cubit_cubit.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/create_new_password.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/login_view.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/reset_password_view.dart';
@@ -6,6 +8,7 @@ import 'package:filmflicks/features/registeraion/presentation/views/sign_up_view
 import 'package:filmflicks/features/registeraion/presentation/views/verifying_view.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/wellcome_view.dart';
 import 'package:filmflicks/features/splash/presentaton/views/splash_view.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 abstract class AppRouter {
@@ -16,7 +19,6 @@ abstract class AppRouter {
   static const kResetPasswordView = "/resetPasswordView";
   static const kVerifyingView = "/verifyingViewBody";
   static const kCreateNewPasswordview = "/createNewPassowrdView";
-
 
   static final GoRouter router = GoRouter(routes: [
     GoRoute(
@@ -37,7 +39,10 @@ abstract class AppRouter {
     ),
     GoRoute(
       path: kSignView,
-      builder: (context, state) => const SignUpView(),
+      builder: (context, state) => BlocProvider(
+        create: (context) => SignInCubitCubit(SignUpRepoimple()),
+        child: const SignUpView(),
+      ),
     ),
     GoRoute(
       path: kVerifyingView,

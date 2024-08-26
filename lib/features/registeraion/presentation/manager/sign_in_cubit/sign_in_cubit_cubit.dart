@@ -17,7 +17,7 @@ class SignInCubitCubit extends Cubit<SignInCubitState> {
     emit(SignInCubitLoading());
     var result = await signUpRepo.signUp(
         userModel: userModel,
-        firebaseAuth: firebaseAuth,
+        firebaseAuthe: firebaseAuth,
         firebaseFirestore: firebaseFirestore);
     result.fold((failure) {
       emit(SignInCubitFailure(errMessage: failure.errMessage));

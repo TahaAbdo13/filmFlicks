@@ -10,9 +10,9 @@ class SignUpRepoimple implements SignUpRepo {
   // FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
   @override
   Future<Either<Failure, Success>> signUp(
-      {required  userModel,required FirebaseAuth firebaseAuth,required FirebaseFirestore firebaseFirestore}) async {
+      {required UserModel userModel,required FirebaseAuth firebaseAuthe,required FirebaseFirestore firebaseFirestore}) async {
     try {
-      await firebaseAuth.createUserWithEmailAndPassword(
+      await firebaseAuthe.createUserWithEmailAndPassword(
           email: userModel.emailAddress, password: userModel.password);
       userModel = UserModel(
           name: userModel.name,
@@ -20,7 +20,7 @@ class SignUpRepoimple implements SignUpRepo {
           password: userModel.password);
       await firebaseFirestore
           .collection("users")
-          .doc(firebaseAuth.currentUser!.uid)
+          .doc(firebaseAuthe.currentUser!.uid)
           .set(userModel.convertModelTOMap(userModel: userModel));
       return right(
           Success(successMessage: "Your Acount is Created Successfully"));
