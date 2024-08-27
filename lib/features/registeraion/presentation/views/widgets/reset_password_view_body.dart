@@ -7,31 +7,40 @@ import 'package:filmflicks/features/registeraion/presentation/views/widgets/view
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class ResetPasswordViewBody extends StatelessWidget {
+class ResetPasswordViewBody extends StatefulWidget {
   const ResetPasswordViewBody({super.key});
 
+  @override
+  State<ResetPasswordViewBody> createState() => _ResetPasswordViewBodyState();
+}
+
+class _ResetPasswordViewBodyState extends State<ResetPasswordViewBody> {
+  TextEditingController emailAdress = TextEditingController();
   @override
   Widget build(BuildContext context) {
     var hieght = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 24),
+    return  Padding(
+      padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 24),
       child: Column(
         children: [
-          const CustomAppBarWidget(title: ""),
-          const SizedBox(
+          CustomAppBarWidget(title: ""),
+          SizedBox(
             height: 40,
           ),
-          const ViewBodyTextSection(
+          ViewBodyTextSection(
               title1: "Reset Password",
               title2: "Recover your account password",
               style1: Styles.h1,
               style2: Styles.h5),
-          const SizedBox(
+          SizedBox(
             height: 48,
           ),
-          const CustomTextFormField(label: "Email Address"),
-          const SizedBox(
+          CustomTextFormField(
+            label: "Email Address",
+            textEditingController: emailAdress,
+          ),
+          SizedBox(
             height: 40,
           ),
           SizedBox(

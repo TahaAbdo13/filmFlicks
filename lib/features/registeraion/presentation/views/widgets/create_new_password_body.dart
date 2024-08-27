@@ -7,8 +7,18 @@ import 'package:filmflicks/features/registeraion/presentation/views/widgets/view
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class CreateNewPasswordBody extends StatelessWidget {
+class CreateNewPasswordBody extends StatefulWidget {
   const CreateNewPasswordBody({super.key});
+
+  @override
+  State<CreateNewPasswordBody> createState() => _CreateNewPasswordBodyState();
+}
+
+class _CreateNewPasswordBodyState extends State<CreateNewPasswordBody> {
+    AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  TextEditingController password = TextEditingController();
+  TextEditingController confirmPassword = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     var hieght = MediaQuery.of(context).size.height;
@@ -29,11 +39,11 @@ class CreateNewPasswordBody extends StatelessWidget {
           const SizedBox(
             height: 48,
           ),
-          const CustomTextFormField(label: "New Password"),
+           CustomTextFormField(label: "New Password", textEditingController: password,),
           const SizedBox(
             height: 24,
           ),
-          const CustomTextFormField(label: "Confirm Password"),
+           CustomTextFormField(label: "Confirm Password", textEditingController: confirmPassword,),
           const SizedBox(
             height: 48,
           ),

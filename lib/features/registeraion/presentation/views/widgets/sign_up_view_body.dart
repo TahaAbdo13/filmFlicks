@@ -97,23 +97,26 @@ class SignUpFormSection extends StatefulWidget {
 class _SignUpFormSectionState extends State<SignUpFormSection> {
   GlobalKey<FormState> formkey = GlobalKey();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  TextEditingController emailAdress = TextEditingController();
+  TextEditingController fullName = TextEditingController();
+  TextEditingController passWord = TextEditingController();
   
   @override
   Widget build(BuildContext context) {
     return Form(
       key: formkey,
       autovalidateMode: autovalidateMode,
-      child: const Column(
+      child:  Column(
         children: [
-          CustomTextFormField(label: "Full Name"),
-          SizedBox(
+          CustomTextFormField(label: "Full Name", textEditingController: fullName,),
+          const SizedBox(
             height: 24,
           ),
-          CustomTextFormField(label: "Email Address"),
-          SizedBox(
+          CustomTextFormField(label: "Email Address", textEditingController: emailAdress,),
+          const SizedBox(
             height: 24,
           ),
-          CustomTextFormField(label: "Password"),
+          CustomTextFormField(label: "Password", textEditingController: passWord,),
         ],
       ),
     );
