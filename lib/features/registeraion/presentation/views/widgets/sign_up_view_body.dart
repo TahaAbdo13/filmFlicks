@@ -1,13 +1,18 @@
-
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:filmflicks/core/models/user_model.dart';
+import 'package:filmflicks/core/utils/app_router.dart';
 import 'package:filmflicks/core/utils/constants.dart';
+import 'package:filmflicks/core/utils/functions/show_snack_bar.dart';
 import 'package:filmflicks/core/utils/styles.dart';
 import 'package:filmflicks/features/registeraion/presentation/manager/sign_in_cubit/sign_in_cubit_cubit.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/widgets/custom_appBar_widget.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/widgets/custom_elevated_button.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/widgets/custom_text_form_field.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/widgets/view_body_text_section.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'custom_privacy_row.dart';
 
 class SignUpViewBody extends StatelessWidget {
@@ -50,16 +55,34 @@ class SignUpViewBody extends StatelessWidget {
           SizedBox(
               width: width,
               height: hieght * 0.075,
-              child: BlocBuilder<SignInCubitCubit, SignInCubitState>(
+              child: BlocConsumer<SignInCubitCubit, SignInCubitState>(
+                listener: (BuildContext context, SignInCubitState state) {
+                  if (state is SignInCubitFailure) {
+                    showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            title: Text(state.errMessage),
+                          );
+                        });
+                  } else if (state is SignInCubitSuccess) {
+                    showSnackBarMethod(context, state.successMessage);
+                    GoRouter.of(context).push(AppRouter.kLoginView);
+                  }
+                },
                 builder: (context, state) {
                   return CustomElevatedButton(
-                    isLoading: state is SignInCubitLoading?true:false,
-                      onPressed: () {
-                        // SignUpRepoimple().signUp(
-                        //     userModel: UserModel(
-                        //         name: "ahmed",
-                        //         emailAddress: "tawdh4aabd5o@gmail.com",
-                        //         password: "1234545551"));
+                      isLoading: state is SignInCubitLoading ? true : false,
+                      onPressed: () async {
+                        UserModel userModel = UserModel(
+                          emailAddress: "dfd@gmail.com",
+                          name: 'andwn',
+                          password: 'mdmwldw',
+                        );
+                        await BlocProvider.of<SignInCubitCubit>(context).singUp(
+                            userModel: userModel,
+                            firebaseAuth: FirebaseAuth.instance,
+                            firebaseFirestore: FirebaseFirestore.instance);
                       },
                       text: "Sign Up");
                 },

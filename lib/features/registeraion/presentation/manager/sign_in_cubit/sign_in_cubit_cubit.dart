@@ -22,7 +22,7 @@ class SignInCubitCubit extends Cubit<SignInCubitState> {
     result.fold((failure) {
       emit(SignInCubitFailure(errMessage: failure.errMessage));
     }, (success) {
-      emit(SignInCubitSuccess());
+      emit(SignInCubitSuccess(successMessage: success.successMessage));
     });
   }
 }
