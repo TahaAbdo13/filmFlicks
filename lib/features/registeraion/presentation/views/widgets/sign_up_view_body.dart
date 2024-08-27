@@ -40,15 +40,7 @@ class SignUpViewBody extends StatelessWidget {
           const SizedBox(
             height: 64,
           ),
-          const CustomTextFormField(label: "Full Name"),
-          const SizedBox(
-            height: 24,
-          ),
-          const CustomTextFormField(label: "Email Address"),
-          const SizedBox(
-            height: 24,
-          ),
-          const CustomTextFormField(label: "Password"),
+          const SignUpFormSection(),
           const SizedBox(height: 16),
           const CustomPrivacyRow(),
           const SizedBox(height: 40),
@@ -87,6 +79,41 @@ class SignUpViewBody extends StatelessWidget {
                       text: "Sign Up");
                 },
               ))
+        ],
+      ),
+    );
+  }
+}
+
+class SignUpFormSection extends StatefulWidget {
+  const SignUpFormSection({
+    super.key,
+  });
+
+  @override
+  State<SignUpFormSection> createState() => _SignUpFormSectionState();
+}
+
+class _SignUpFormSectionState extends State<SignUpFormSection> {
+  GlobalKey<FormState> formkey = GlobalKey();
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      key: formkey,
+      autovalidateMode: autovalidateMode,
+      child: const Column(
+        children: [
+          CustomTextFormField(label: "Full Name"),
+          SizedBox(
+            height: 24,
+          ),
+          CustomTextFormField(label: "Email Address"),
+          SizedBox(
+            height: 24,
+          ),
+          CustomTextFormField(label: "Password"),
         ],
       ),
     );
