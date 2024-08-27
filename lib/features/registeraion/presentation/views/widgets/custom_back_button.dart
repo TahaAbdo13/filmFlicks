@@ -15,15 +15,15 @@ class CustomBackButton extends StatelessWidget {
       },
       child: Container(
         alignment: AlignmentDirectional.center,
-        height: 30,
-        width: 30,
+        height: 40,
+        width: 40,
         decoration: BoxDecoration(
           color: kSoft,
           borderRadius: BorderRadius.circular(12),
         ),
         child: const Icon(
           Icons.arrow_back_ios,
-          size: 15,
+          size: 20,
         ),
       ),
     );

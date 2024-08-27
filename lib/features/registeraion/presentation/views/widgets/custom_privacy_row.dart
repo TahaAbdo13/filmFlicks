@@ -4,8 +4,11 @@ import 'package:filmflicks/features/registeraion/presentation/views/widgets/cust
 import 'package:flutter/material.dart';
 
 class CustomPrivacyRow extends StatelessWidget {
+  final void Function(bool?) onChanged;
+  final bool isActive;
   const CustomPrivacyRow({
     super.key,
+    required this.onChanged, required this.isActive,
   });
 
   @override
@@ -13,7 +16,7 @@ class CustomPrivacyRow extends StatelessWidget {
     return Row(
       children: [
         CustomCheckBox(
-          onChanged: (value) {},
+          onChanged: onChanged, isActive: isActive,
         ),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
