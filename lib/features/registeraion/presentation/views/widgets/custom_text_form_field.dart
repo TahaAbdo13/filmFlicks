@@ -3,16 +3,18 @@ import 'package:filmflicks/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextFormField extends StatelessWidget {
+ final String? Function(String?)? validator;
   final TextEditingController textEditingController;
   final String label;
   const CustomTextFormField({
     super.key,
-    required this.label, required this.textEditingController,
+    required this.label, required this.textEditingController, this.validator,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      validator:validator ,
       controller: textEditingController,
       style: Styles.h6,
       decoration: InputDecoration(
