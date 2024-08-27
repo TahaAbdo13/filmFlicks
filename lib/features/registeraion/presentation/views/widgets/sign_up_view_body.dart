@@ -8,6 +8,7 @@ import 'package:filmflicks/features/registeraion/presentation/manager/sign_in_cu
 import 'package:filmflicks/features/registeraion/presentation/views/widgets/custom_appBar_widget.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/widgets/custom_elevated_button.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/widgets/custom_text_form_field.dart';
+import 'package:filmflicks/features/registeraion/presentation/views/widgets/sign_up_form_section.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/widgets/view_body_text_section.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -15,8 +16,19 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'custom_privacy_row.dart';
 
-class SignUpViewBody extends StatelessWidget {
+class SignUpViewBody extends StatefulWidget {
   const SignUpViewBody({super.key});
+
+  @override
+  State<SignUpViewBody> createState() => _SignUpViewBodyState();
+}
+
+class _SignUpViewBodyState extends State<SignUpViewBody> {
+  GlobalKey<FormState> formkey = GlobalKey();
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  TextEditingController emailAdress = TextEditingController();
+  TextEditingController fullName = TextEditingController();
+  TextEditingController passWord = TextEditingController();
   @override
   Widget build(BuildContext context) {
     var hieght = MediaQuery.of(context).size.height;
@@ -40,7 +52,13 @@ class SignUpViewBody extends StatelessWidget {
           const SizedBox(
             height: 64,
           ),
-          const SignUpFormSection(),
+          SignUpFormSection(
+            formkey: formkey,
+            autovalidateMode: autovalidateMode,
+            emailAdress: emailAdress,
+            fullName: fullName,
+            passWord: passWord,
+          ),
           const SizedBox(height: 16),
           const CustomPrivacyRow(),
           const SizedBox(height: 40),
@@ -66,57 +84,25 @@ class SignUpViewBody extends StatelessWidget {
                   return CustomElevatedButton(
                       isLoading: state is SignInCubitLoading ? true : false,
                       onPressed: () async {
-                        UserModel userModel = UserModel(
-                          emailAddress: "dfd@gmail.com",
-                          name: 'andwn',
-                          password: 'mdmwldw',
-                        );
-                        await BlocProvider.of<SignInCubitCubit>(context).singUp(
-                            userModel: userModel,
-                            firebaseAuth: FirebaseAuth.instance,
-                            firebaseFirestore: FirebaseFirestore.instance);
+                        if (formkey.currentState!.validate()) {
+                          formkey.currentState!.save();
+                          autovalidateMode = AutovalidateMode.always;
+                          UserModel userModel = UserModel(
+                            emailAddress: emailAdress.text,
+                            name: fullName.text,
+                            password: passWord.text,
+                          );
+                          await BlocProvider.of<SignInCubitCubit>(context)
+                              .singUp(
+                                  userModel: userModel,
+                                  firebaseAuth: FirebaseAuth.instance,
+                                  firebaseFirestore:
+                                      FirebaseFirestore.instance);
+                        }
                       },
                       text: "Sign Up");
                 },
               ))
-        ],
-      ),
-    );
-  }
-}
-
-class SignUpFormSection extends StatefulWidget {
-  const SignUpFormSection({
-    super.key,
-  });
-
-  @override
-  State<SignUpFormSection> createState() => _SignUpFormSectionState();
-}
-
-class _SignUpFormSectionState extends State<SignUpFormSection> {
-  GlobalKey<FormState> formkey = GlobalKey();
-  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
-  TextEditingController emailAdress = TextEditingController();
-  TextEditingController fullName = TextEditingController();
-  TextEditingController passWord = TextEditingController();
-  
-  @override
-  Widget build(BuildContext context) {
-    return Form(
-      key: formkey,
-      autovalidateMode: autovalidateMode,
-      child:  Column(
-        children: [
-          CustomTextFormField(label: "Full Name", textEditingController: fullName,),
-          const SizedBox(
-            height: 24,
-          ),
-          CustomTextFormField(label: "Email Address", textEditingController: emailAdress,),
-          const SizedBox(
-            height: 24,
-          ),
-          CustomTextFormField(label: "Password", textEditingController: passWord,),
         ],
       ),
     );
