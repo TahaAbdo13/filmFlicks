@@ -30,12 +30,12 @@ class CustomTextFieldSection extends StatelessWidget {
           label: 'Password',
           textEditingController: passWord,
         ),
-      const  SizedBox(
+        const SizedBox(
           height: 10,
         ),
         CustomTextButton(
           onPressed: () {
-            GoRouter.of(context).push(AppRouter.kVerifyingView);
+            GoRouter.of(context).push(AppRouter.kResetPasswordView);
           },
           text: 'Forgot Password?',
         ),

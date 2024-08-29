@@ -24,7 +24,11 @@ class VeryFingOtpSection extends StatelessWidget {
         SizedBox(
             width: width,
             height: hieght * 0.075,
-            child: CustomElevatedButton(onPressed: () {}, text: "Continue")),
+            child: CustomElevatedButton(
+                onPressed: () {
+                  GoRouter.of(context).push(AppRouter.kCreateNewPasswordview);
+                },
+                text: "Continue")),
         const SizedBox(
           height: 24,
         ),

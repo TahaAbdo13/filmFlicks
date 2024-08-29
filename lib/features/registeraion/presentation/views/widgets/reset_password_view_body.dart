@@ -20,7 +20,7 @@ class _ResetPasswordViewBodyState extends State<ResetPasswordViewBody> {
   Widget build(BuildContext context) {
     var hieght = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
-    return  Padding(
+    return Padding(
       padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 24),
       child: Column(
         children: [
@@ -48,7 +48,7 @@ class _ResetPasswordViewBodyState extends State<ResetPasswordViewBody> {
               height: hieght * 0.075,
               child: CustomElevatedButton(
                   onPressed: () {
-                    GoRouter.of(context).push(AppRouter.kCreateNewPasswordview);
+                    GoRouter.of(context).push(AppRouter.kVerifyingView);
                   },
                   text: "Next"))
         ],
