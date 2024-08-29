@@ -4,28 +4,15 @@ import 'package:filmflicks/features/registeraion/presentation/views/widgets/cust
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class CustomTextFieldSection extends StatefulWidget {
+class CustomTextFieldSection extends StatelessWidget {
+  final TextEditingController emailAdress;
+  final TextEditingController passWord;
   const CustomTextFieldSection({
-    super.key,
+    super.key, required this.emailAdress, required this.passWord, 
   });
 
+
   @override
-  State<CustomTextFieldSection> createState() => _CustomTextFieldSectionState();
-}
-
-class _CustomTextFieldSectionState extends State<CustomTextFieldSection> {
-  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
-  TextEditingController emailAdress = TextEditingController();
-
-  TextEditingController passWord = TextEditingController();
-  @override
-  void dispose() {
-    emailAdress.dispose();
-    passWord.dispose();
-  
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Column(

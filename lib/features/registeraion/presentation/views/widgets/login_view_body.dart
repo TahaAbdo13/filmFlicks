@@ -13,9 +13,17 @@ import 'custom_text_field_section.dart';
 
 import 'view_body_text_section.dart';
 
-class LoginViewBody extends StatelessWidget {
+class LoginViewBody extends StatefulWidget {
   const LoginViewBody({super.key});
 
+  @override
+  State<LoginViewBody> createState() => _LoginViewBodyState();
+}
+
+class _LoginViewBodyState extends State<LoginViewBody> {
+  TextEditingController emailAdress = TextEditingController();
+
+  TextEditingController passWord = TextEditingController();
   @override
   Widget build(BuildContext context) {
     var hieght = MediaQuery.of(context).size.height;
@@ -42,7 +50,10 @@ class LoginViewBody extends StatelessWidget {
             const SizedBox(
               height: 60,
             ),
-            const CustomTextFieldSection(),
+            CustomTextFieldSection(
+              emailAdress: emailAdress,
+              passWord: passWord,
+            ),
             const SizedBox(
               height: 60,
             ),
@@ -52,31 +63,31 @@ class LoginViewBody extends StatelessWidget {
               child: BlocConsumer<LoginInCubitCubit, LoginInCubitState>(
                 listener: (context, state) {
                   if (state is LogInCubitFailure) {
-                      AwesomeDialog(
-                              autoHide: const Duration(seconds: 3),
-                              context: context,
-                              customHeader: const Icon(
-                                Icons.error,
-                                size: 50,
-                                color: Colors.red,
-                              ),
-                              title: "Error",
-                              titleTextStyle:
-                                  Styles.h2.copyWith(color: kPrimaryColor),
-                              descTextStyle:
-                                  Styles.h5.copyWith(color: kWhiteColor),
-                              desc: state.errMessage)
-                          .show();
-                    } else if (state is LogInCubitSuccess) {
-                      showSnackBarMethod(context, state.successMessage);
-                    
-                    }
+                    AwesomeDialog(
+                            autoHide: const Duration(seconds: 3),
+                            context: context,
+                            customHeader: const Icon(
+                              Icons.error,
+                              size: 50,
+                              color: Colors.red,
+                            ),
+                            title: "Error",
+                            titleTextStyle:
+                                Styles.h2.copyWith(color: kPrimaryColor),
+                            descTextStyle:
+                                Styles.h5.copyWith(color: kWhiteColor),
+                            desc: state.errMessage)
+                        .show();
+                  } else if (state is LogInCubitSuccess) {
+                    showSnackBarMethod(context, state.successMessage);
+                  }
                 },
                 builder: (context, state) {
                   return CustomElevatedButton(
-                    isLoading: state is LogInCubitLoading?true:false,
+                    isLoading: state is LogInCubitLoading ? true : false,
                     onPressed: () {
-                    
+                      BlocProvider.of<LoginInCubitCubit>(context).login(
+                          email: emailAdress.text, password: passWord.text);
                     },
                     text: 'Login',
                   );
