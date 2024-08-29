@@ -1,5 +1,7 @@
 import 'package:filmflicks/features/onBoardering_view/presentaion/views/onBoardring_view.dart';
+import 'package:filmflicks/features/registeraion/data/repository/log_in_repoImple.dart';
 import 'package:filmflicks/features/registeraion/data/repository/sign_up_repoimple.dart';
+import 'package:filmflicks/features/registeraion/presentation/manager/login_cubit/login_in_cubit_cubit.dart';
 import 'package:filmflicks/features/registeraion/presentation/manager/sign_in_cubit/sign_in_cubit_cubit.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/create_new_password.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/login_view.dart';
@@ -8,6 +10,7 @@ import 'package:filmflicks/features/registeraion/presentation/views/sign_up_view
 import 'package:filmflicks/features/registeraion/presentation/views/verifying_view.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/wellcome_view.dart';
 import 'package:filmflicks/features/splash/presentaton/views/splash_view.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
@@ -35,7 +38,10 @@ abstract class AppRouter {
     ),
     GoRoute(
       path: kLoginView,
-      builder: (context, state) => const LoginView(),
+      builder: (context, state) => BlocProvider(
+        create: (context) => LoginInCubitCubit(LogInRepoimple(FirebaseAuth.instance)),
+        child: const LoginView(),
+      ),
     ),
     GoRoute(
       path: kSignView,
