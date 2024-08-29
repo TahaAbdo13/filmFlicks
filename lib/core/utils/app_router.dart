@@ -56,14 +56,14 @@ abstract class AppRouter {
     ),
     GoRoute(
       path: kVerifyingView,
-      builder: (context, state) => BlocProvider(
-        create: (context) => VerifiengCubitCubit(VerifiengEmailRepoimplementaion(FirebaseAuth.instance)),
-        child: const VerifyingView(),
-      ),
+      builder: (context, state) => const VerifyingView(),
     ),
     GoRoute(
       path: kResetPasswordView,
-      builder: (context, state) => const ResetPasswordView(),
+      builder: (context, state) => BlocProvider(
+        create: (context) => VerifiengCubitCubit(VerifiengEmailRepoimplementaion(FirebaseAuth.instance)),
+        child: const ResetPasswordView(),
+      ),
     ),
     GoRoute(
       path: kCreateNewPasswordview,
