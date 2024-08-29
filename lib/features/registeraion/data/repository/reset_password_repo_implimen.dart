@@ -10,17 +10,13 @@ class ResetPasswordRepoImplimen implements ResetPasswordRepo {
   ResetPasswordRepoImplimen(this.firebaseAuth);
   @override
   Future<Either<Failure, Success>> resetPassword(
-      {required String emailAddress})async {
-    
-    try{
-await firebaseAuth.confirmPasswordReset(code: code, newPassword: newPassword)
-      
-
-    }catch(e){
-
+      {required String code, required String newPassword}) async {
+    try {
+      await firebaseAuth.confirmPasswordReset(
+          code: code, newPassword: newPassword);
+          return  Right(Success( successMessage: 'Password reset successfully'));
+    } catch (e) {
+      return Left(AuthError(e.toString()));
     }
-    
-
-
   }
 }
