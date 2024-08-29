@@ -16,31 +16,35 @@ class ResetPasswordViewBody extends StatefulWidget {
 
 class _ResetPasswordViewBodyState extends State<ResetPasswordViewBody> {
   TextEditingController emailAdress = TextEditingController();
+  GlobalKey<FormState> formKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
     var hieght = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 24),
+      padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 24),
       child: Column(
         children: [
-          CustomAppBarWidget(title: ""),
-          SizedBox(
+          const CustomAppBarWidget(title: ""),
+          const SizedBox(
             height: 40,
           ),
-          ViewBodyTextSection(
+          const ViewBodyTextSection(
               title1: "Reset Password",
               title2: "Recover your account password",
               style1: Styles.h1,
               style2: Styles.h5),
-          SizedBox(
+          const SizedBox(
             height: 48,
           ),
-          CustomTextFormField(
-            label: "Email Address",
-            textEditingController: emailAdress,
+          Form(
+            key: formKey,
+            child: CustomTextFormField(
+              label: "Email Address",
+              textEditingController: emailAdress,
+            ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 40,
           ),
           SizedBox(
