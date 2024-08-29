@@ -5,5 +5,5 @@ import 'package:filmflicks/core/success/success.dart';
 
 abstract class ResetPasswordRepo {
  
-  Future<Either<Failure,Success>>resetPassword({required String emailAddress});
+  Future<Either<Failure,Success>>resetPassword({required int code,required String newPassword});
 }
