@@ -1,7 +1,7 @@
 import 'package:filmflicks/features/onBoardering_view/presentaion/views/onBoardring_view.dart';
 import 'package:filmflicks/features/registeraion/data/repository/log_in_repoImple.dart';
 import 'package:filmflicks/features/registeraion/data/repository/sign_up_repoimple.dart';
-import 'package:filmflicks/features/registeraion/presentation/manager/login_cubit.dart/login_in_cubit_cubit.dart';
+import 'package:filmflicks/features/registeraion/presentation/manager/log_in_cubit/login_in_cubit_cubit.dart';
 
 import 'package:filmflicks/features/registeraion/presentation/manager/sign_in_cubit/sign_in_cubit_cubit.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/create_new_password.dart';
