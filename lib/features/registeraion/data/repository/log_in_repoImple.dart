@@ -12,9 +12,13 @@ class LogInRepoimple implements LoginRepo {
   Future<Either<Failure, Success>> login(
       {required String email, required String password}) async {
     try {
-      await firebaseAuth.signInWithEmailAndPassword(
+    var credential=  await firebaseAuth.signInWithEmailAndPassword(
           email: email, password: password);
-      return right(Success(successMessage: "Login Successfuly"));
+    if(credential.user!.emailVerified){
+      return Right(Success( successMessage: 'Login Successfull'));
+    }else{
+      return  left(AuthError("Please Confirm your email and try again"));
+    }
     } catch (e) {
       if (e is FirebaseAuthException) {
         return left(AuthError.firebaseAuhtExeption(e));
