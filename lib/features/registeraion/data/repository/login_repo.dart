@@ -4,7 +4,7 @@ import 'package:filmflicks/core/success/success.dart';
 
 abstract class LoginRepo {
 
-Future<Either<Failure,Success>>login();
+Future<Either<Failure,Success>>login({required String email,required String password});
 
 
 }
