@@ -23,14 +23,20 @@ class _SplashViewBodyState extends State<SplashViewBody>
   late Animation<Offset> slidinTextAnimation;
   @override
   void initState() {
-        super.initState();
+    super.initState();
     navigatorMethod();
 
     animationMethod();
   }
 
+  @override
+  void dispose() {
+    animationController.dispose();
+    super.dispose();
+  }
+
   void navigatorMethod() {
-     Timer(const Duration(seconds: 5), () {
+    Timer(const Duration(seconds: 5), () {
       GoRouter.of(context).go(AppRouter.kOnBoarderingScreenView);
     });
   }
@@ -44,7 +50,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
           alignment: Alignment.center,
           child: SlideTransition(
             position: slidinImageAnimation,
-            child:const CustomAppLogoWidget(),
+            child: const CustomAppLogoWidget(),
           ),
         ),
         const SizedBox(
@@ -52,7 +58,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
         ),
         SlideTransition(
           position: slidinTextAnimation,
-          child:const CustomAppNameWidget(),
+          child: const CustomAppNameWidget(),
         )
       ],
     );
