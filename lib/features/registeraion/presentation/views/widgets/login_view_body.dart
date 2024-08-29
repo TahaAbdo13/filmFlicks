@@ -3,7 +3,7 @@ import 'package:filmflicks/core/utils/constants.dart';
 import 'package:filmflicks/core/utils/functions/show_snack_bar.dart';
 import 'package:filmflicks/core/utils/styles.dart';
 import 'package:filmflicks/features/registeraion/presentation/manager/login_cubit/login_in_cubit_cubit.dart';
-import 'package:filmflicks/features/registeraion/presentation/manager/sign_in_cubit/sign_in_cubit_cubit.dart';
+
 import 'package:filmflicks/features/registeraion/presentation/views/widgets/custom_elevated_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -64,7 +64,6 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                 listener: (context, state) {
                   if (state is LogInCubitFailure) {
                     AwesomeDialog(
-                            autoHide: const Duration(seconds: 3),
                             context: context,
                             customHeader: const Icon(
                               Icons.error,

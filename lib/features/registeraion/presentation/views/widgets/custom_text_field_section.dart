@@ -8,9 +8,10 @@ class CustomTextFieldSection extends StatelessWidget {
   final TextEditingController emailAdress;
   final TextEditingController passWord;
   const CustomTextFieldSection({
-    super.key, required this.emailAdress, required this.passWord, 
+    super.key,
+    required this.emailAdress,
+    required this.passWord,
   });
-
 
   @override
   @override
@@ -28,6 +29,9 @@ class CustomTextFieldSection extends StatelessWidget {
         CustomTextFormField(
           label: 'Password',
           textEditingController: passWord,
+        ),
+      const  SizedBox(
+          height: 10,
         ),
         CustomTextButton(
           onPressed: () {
