@@ -1,10 +1,12 @@
 import 'package:filmflicks/core/utils/app_router.dart';
 import 'package:filmflicks/core/utils/styles.dart';
+import 'package:filmflicks/features/registeraion/presentation/manager/verifieng_email_cubit/verifieng_cubit_cubit.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/widgets/custom_appBar_widget.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/widgets/custom_elevated_button.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/widgets/custom_text_form_field.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/widgets/view_body_text_section.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class ResetPasswordViewBody extends StatefulWidget {
@@ -50,11 +52,19 @@ class _ResetPasswordViewBodyState extends State<ResetPasswordViewBody> {
           SizedBox(
               width: width,
               height: hieght * 0.075,
-              child: CustomElevatedButton(
-                  onPressed: () {
-                    GoRouter.of(context).push(AppRouter.kVerifyingView);
-                  },
-                  text: "Next"))
+              child: BlocConsumer<VerifiengCubitCubit, VerifiengCubitState>(
+                listener: (context, state) {},
+                builder: (context, state) {
+                  return CustomElevatedButton(
+                      onPressed: () {
+                        if (formKey.currentState!.validate()) {
+                          formKey.currentState!.save();
+                          context.read<VerifiengCubitCubit>().verifiengEmail(emailAddress: emailAdress.text);
+                        }
+                      },
+                      text: "Next");
+                },
+              ))
         ],
       ),
     );
