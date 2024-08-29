@@ -1,7 +1,12 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:filmflicks/core/utils/constants.dart';
+import 'package:filmflicks/core/utils/functions/show_snack_bar.dart';
 import 'package:filmflicks/core/utils/styles.dart';
+import 'package:filmflicks/features/registeraion/presentation/manager/login_cubit/login_in_cubit_cubit.dart';
+import 'package:filmflicks/features/registeraion/presentation/manager/sign_in_cubit/sign_in_cubit_cubit.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/widgets/custom_elevated_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'custom_appBar_widget.dart';
 
 import 'custom_text_field_section.dart';
@@ -22,11 +27,18 @@ class LoginViewBody extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 14),
         child: Column(
           children: [
-            const CustomAppBarWidget(title: 'Login',),
+            const CustomAppBarWidget(
+              title: 'Login',
+            ),
             const SizedBox(
               height: 40,
             ),
-              ViewBodyTextSection(title1: 'Hi, Tiffany', style1: Styles.h2, title2: '"Welcome back! Please enter your details."', style2:  Styles.h6.copyWith(color: kWhiteGrey),),
+            ViewBodyTextSection(
+              title1: 'Hi, Tiffany',
+              style1: Styles.h2,
+              title2: '"Welcome back! Please enter your details."',
+              style2: Styles.h6.copyWith(color: kWhiteGrey),
+            ),
             const SizedBox(
               height: 60,
             ),
@@ -37,9 +49,38 @@ class LoginViewBody extends StatelessWidget {
             SizedBox(
               width: width,
               height: hieght * 0.075,
-              child: CustomElevatedButton(
-                onPressed: () {},
-                text: 'Login',
+              child: BlocConsumer<LoginInCubitCubit, LoginInCubitState>(
+                listener: (context, state) {
+                  if (state is LogInCubitFailure) {
+                      AwesomeDialog(
+                              autoHide: const Duration(seconds: 3),
+                              context: context,
+                              customHeader: const Icon(
+                                Icons.error,
+                                size: 50,
+                                color: Colors.red,
+                              ),
+                              title: "Error",
+                              titleTextStyle:
+                                  Styles.h2.copyWith(color: kPrimaryColor),
+                              descTextStyle:
+                                  Styles.h5.copyWith(color: kWhiteColor),
+                              desc: state.errMessage)
+                          .show();
+                    } else if (state is LogInCubitSuccess) {
+                      showSnackBarMethod(context, state.successMessage);
+                    
+                    }
+                },
+                builder: (context, state) {
+                  return CustomElevatedButton(
+                    isLoading: state is LogInCubitLoading?true:false,
+                    onPressed: () {
+                    
+                    },
+                    text: 'Login',
+                  );
+                },
               ),
             )
           ],
