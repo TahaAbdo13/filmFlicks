@@ -9,11 +9,18 @@ class VerifiengEmailRepoimplementaion implements VerifiengRepo {
 
   VerifiengEmailRepoimplementaion(this.firebaseAuth);
   @override
-  Future<Either<Failure, Success>> veriFiengEmail()async {
-    try{
-     await firebaseAuth.sendPasswordResetEmail(email: email)
-    }catch(e){
-
+  Future<Either<Failure, Success>> veriFiengEmail(
+      {required String emailAddress}) async {
+    try {
+      await firebaseAuth.sendPasswordResetEmail(email: emailAddress);
+      return Right(Success(successMessage: "Password send to your email"));
+    } catch (e) {
+        if (e is FirebaseAuthException) {
+        return left(AuthError.firebaseAuhtExeption(e));
+      } 
+      else {
+        return left(AuthError("There was an Error Now, Please try again!"));
+      }
     }
   }
 }
