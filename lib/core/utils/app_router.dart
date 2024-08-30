@@ -3,14 +3,11 @@ import 'package:filmflicks/features/registeraion/data/repository/log_in_repoImpl
 import 'package:filmflicks/features/registeraion/data/repository/sign_up_repoimple.dart';
 import 'package:filmflicks/features/registeraion/data/repository/verifieng_email_repoImplementaion.dart';
 import 'package:filmflicks/features/registeraion/presentation/manager/log_in_cubit/login_in_cubit_cubit.dart';
-
 import 'package:filmflicks/features/registeraion/presentation/manager/sign_in_cubit/sign_in_cubit_cubit.dart';
 import 'package:filmflicks/features/registeraion/presentation/manager/verifieng_email_cubit/verifieng_cubit_cubit.dart';
-import 'package:filmflicks/features/registeraion/presentation/views/create_new_password.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/login_view.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/reset_password_view.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/sign_up_view.dart';
-import 'package:filmflicks/features/registeraion/presentation/views/verifying_view.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/wellcome_view.dart';
 import 'package:filmflicks/features/splash/presentaton/views/splash_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -55,19 +52,12 @@ abstract class AppRouter {
       ),
     ),
     GoRoute(
-      path: kVerifyingView,
-      builder: (context, state) => const VerifyingView(),
-    ),
-    GoRoute(
       path: kResetPasswordView,
       builder: (context, state) => BlocProvider(
-        create: (context) => VerifiengCubitCubit(VerifiengEmailRepoimplementaion(FirebaseAuth.instance)),
+        create: (context) => VerifiengCubitCubit(
+            VerifiengEmailRepoimplementaion(FirebaseAuth.instance)),
         child: const ResetPasswordView(),
       ),
-    ),
-    GoRoute(
-      path: kCreateNewPasswordview,
-      builder: (context, state) => const CreateNewPasswordView(),
     ),
   ]);
 }

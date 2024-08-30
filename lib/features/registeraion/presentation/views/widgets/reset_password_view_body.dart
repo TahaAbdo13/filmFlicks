@@ -1,4 +1,7 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:filmflicks/core/utils/app_router.dart';
+import 'package:filmflicks/core/utils/constants.dart';
+import 'package:filmflicks/core/utils/functions/show_snack_bar.dart';
 import 'package:filmflicks/core/utils/styles.dart';
 import 'package:filmflicks/features/registeraion/presentation/manager/verifieng_email_cubit/verifieng_cubit_cubit.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/widgets/custom_appBar_widget.dart';
@@ -53,16 +56,39 @@ class _ResetPasswordViewBodyState extends State<ResetPasswordViewBody> {
               width: width,
               height: hieght * 0.075,
               child: BlocConsumer<VerifiengCubitCubit, VerifiengCubitState>(
-                listener: (context, state) {},
+                listener: (context, state) {
+                  if (state is VerifiengCubitFailure) {
+                    AwesomeDialog(
+                            context: context,
+                            customHeader: const Icon(
+                              Icons.error,
+                              size: 50,
+                              color: Colors.red,
+                            ),
+                            title: "Error",
+                            titleTextStyle:
+                                Styles.h2.copyWith(color: kPrimaryColor),
+                            descTextStyle:
+                                Styles.h5.copyWith(color: kWhiteColor),
+                            desc: state.errMessage)
+                        .show();
+                  } else if (state is VerifiengCubitSuccess) {
+                    showSnackBarMethod(context, state.successMessage);
+                    GoRouter.of(context).push(AppRouter.kLoginView);
+                  }
+                },
                 builder: (context, state) {
                   return CustomElevatedButton(
+                      isLoading: state is VerifiengCubitLoading ? true : false,
                       onPressed: () {
                         if (formKey.currentState!.validate()) {
                           formKey.currentState!.save();
-                          context.read<VerifiengCubitCubit>().verifiengEmail(emailAddress: emailAdress.text);
+                          context
+                              .read<VerifiengCubitCubit>()
+                              .verifiengEmail(emailAddress: emailAdress.text);
                         }
                       },
-                      text: "Next");
+                      text: "Send");
                 },
               ))
         ],
