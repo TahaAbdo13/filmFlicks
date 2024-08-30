@@ -45,6 +45,13 @@ class _ResetPasswordViewBodyState extends State<ResetPasswordViewBody> {
           Form(
             key: formKey,
             child: CustomTextFormField(
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return "Please enter email Address";
+                } else {
+                  return null;
+                }
+              },
               label: "Email Address",
               textEditingController: emailAdress,
             ),
@@ -74,7 +81,7 @@ class _ResetPasswordViewBodyState extends State<ResetPasswordViewBody> {
                         .show();
                   } else if (state is VerifiengCubitSuccess) {
                     showSnackBarMethod(context, state.successMessage);
-                    GoRouter.of(context).push(AppRouter.kLoginView);
+                    GoRouter.of(context).pop();
                   }
                 },
                 builder: (context, state) {

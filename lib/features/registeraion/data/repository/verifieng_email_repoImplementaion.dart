@@ -15,10 +15,9 @@ class VerifiengEmailRepoimplementaion implements VerifiengRepo {
       await firebaseAuth.sendPasswordResetEmail(email: emailAddress);
       return Right(Success(successMessage: "Password send to your email"));
     } catch (e) {
-        if (e is FirebaseAuthException) {
+      if (e is FirebaseAuthException) {
         return left(AuthError.firebaseAuhtExeption(e));
-      } 
-      else {
+      } else {
         return left(AuthError("There was an Error Now, Please try again!"));
       }
     }
