@@ -8,17 +8,17 @@ class SignUpWihIconRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-      const CustomCircleAvatar(
+       CustomCircleAvatar(
         color: kWhiteColor,
-        circleImage: 'assets/images/Icon - Google.svg',
+        circleImage: 'assets/images/Icon - Google.svg', onTap: () {  },
       ),
-      const CustomCircleAvatar(
+       CustomCircleAvatar(
         color: kSoft,
-        circleImage: 'assets/images/Icon - Apple.svg',
+        circleImage: 'assets/images/Icon - Apple.svg', onTap: () {  },
       ),
       CustomCircleAvatar(
         color: Colors.blue.withOpacity(0.6),
-        circleImage: 'assets/images/Icon - Facebook.svg',
+        circleImage: 'assets/images/Icon - Facebook.svg', onTap: () {  },
       ),
     ]);
   }
