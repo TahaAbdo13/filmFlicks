@@ -2,9 +2,11 @@ import 'package:filmflicks/features/onBoardering_view/presentaion/views/onBoardr
 import 'package:filmflicks/features/registeraion/data/repository/log_in_repoImple.dart';
 import 'package:filmflicks/features/registeraion/data/repository/sign_up_repoimple.dart';
 import 'package:filmflicks/features/registeraion/data/repository/verifieng_email_repoImplementaion.dart';
+import 'package:filmflicks/features/registeraion/data/repository/wellcome_repoImple.dart';
 import 'package:filmflicks/features/registeraion/presentation/manager/log_in_cubit/login_in_cubit_cubit.dart';
 import 'package:filmflicks/features/registeraion/presentation/manager/sign_in_cubit/sign_in_cubit_cubit.dart';
 import 'package:filmflicks/features/registeraion/presentation/manager/verifieng_email_cubit/verifieng_cubit_cubit.dart';
+import 'package:filmflicks/features/registeraion/presentation/manager/wellcome_sigIn_google/wellcome_sign_in_google_cubit.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/login_view.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/reset_password_view.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/sign_up_view.dart';
@@ -13,6 +15,7 @@ import 'package:filmflicks/features/splash/presentaton/views/splash_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 abstract class AppRouter {
   static const kOnBoarderingScreenView = "/OnBoardringScreenView";
@@ -34,7 +37,10 @@ abstract class AppRouter {
     ),
     GoRoute(
       path: kWellcomeView,
-      builder: (context, state) => const WellcomeView(),
+      builder: (context, state) => BlocProvider(
+        create: (context) => WellcomeSignInGoogleCubit(WellcomeRepoimple( )),
+        child: const WellcomeView(),
+      ),
     ),
     GoRoute(
       path: kLoginView,
