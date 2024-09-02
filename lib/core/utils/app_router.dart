@@ -15,7 +15,6 @@ import 'package:filmflicks/features/splash/presentaton/views/splash_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 
 abstract class AppRouter {
   static const kOnBoarderingScreenView = "/OnBoardringScreenView";
