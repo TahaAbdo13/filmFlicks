@@ -1,5 +1,4 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
-import 'package:filmflicks/core/utils/app_router.dart';
 import 'package:filmflicks/core/utils/constants.dart';
 import 'package:filmflicks/core/utils/functions/show_snack_bar.dart';
 import 'package:filmflicks/core/utils/styles.dart';
@@ -11,14 +10,12 @@ import 'package:filmflicks/features/registeraion/presentation/views/widgets/view
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-
 class ResetPasswordViewBody extends StatefulWidget {
   const ResetPasswordViewBody({super.key});
 
   @override
   State<ResetPasswordViewBody> createState() => _ResetPasswordViewBodyState();
 }
-
 class _ResetPasswordViewBodyState extends State<ResetPasswordViewBody> {
   TextEditingController emailAdress = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey();
