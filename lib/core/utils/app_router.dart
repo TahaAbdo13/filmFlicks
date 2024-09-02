@@ -6,7 +6,7 @@ import 'package:filmflicks/features/registeraion/data/repository/wellcome_repoIm
 import 'package:filmflicks/features/registeraion/presentation/manager/log_in_cubit/login_in_cubit_cubit.dart';
 import 'package:filmflicks/features/registeraion/presentation/manager/sign_in_cubit/sign_in_cubit_cubit.dart';
 import 'package:filmflicks/features/registeraion/presentation/manager/verifieng_email_cubit/verifieng_cubit_cubit.dart';
-import 'package:filmflicks/features/registeraion/presentation/manager/wellcome_sigIn_google/wellcome_sign_in_google_cubit.dart';
+import 'package:filmflicks/features/registeraion/presentation/manager/social_auth/social_auth_cubit.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/login_view.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/reset_password_view.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/sign_up_view.dart';
@@ -37,7 +37,7 @@ abstract class AppRouter {
     GoRoute(
       path: kWellcomeView,
       builder: (context, state) => BlocProvider(
-        create: (context) => WellcomeSignInGoogleCubit(WellcomeRepoimple( )),
+        create: (context) => SocialAuthCubit(WellcomeRepoimple( )),
         child: const WellcomeView(),
       ),
     ),

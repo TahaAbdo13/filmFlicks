@@ -1,6 +1,6 @@
 import 'package:filmflicks/core/utils/constants.dart';
 import 'package:filmflicks/core/utils/functions/show_snack_bar.dart';
-import 'package:filmflicks/features/registeraion/presentation/manager/wellcome_sigIn_google/wellcome_sign_in_google_cubit.dart';
+import 'package:filmflicks/features/registeraion/presentation/manager/social_auth/social_auth_cubit.dart';
 import 'package:filmflicks/features/registeraion/presentation/views/widgets/custom_circle_avatar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,11 +10,11 @@ class SignUpWihIconRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<WellcomeSignInGoogleCubit, WellcomeSignInGoogleState>(
+    return BlocConsumer<SocialAuthCubit, SocialAuthCubitState>(
       listener: (context, state) {
-        if (state is WellcomeSignInGoogleCubitSuccess) {
+        if (state is SocialAuthCubitSuccess) {
           showSnackBarMethod(context, state.successMessage);
-        } else if (state is WellcomeSignInGoogleCubitFailure) {
+        } else if (state is SocialAuthCubitFailure) {
           print(state.errMessage);
         }
       },
@@ -26,10 +26,10 @@ class SignUpWihIconRow extends StatelessWidget {
                 color: kWhiteColor,
                 circleImage: 'assets/images/Icon - Google.svg',
                 onTap: () {
-                  context.read<WellcomeSignInGoogleCubit>().signInWithGoogle();
+                  context.read<SocialAuthCubit>().signInWithGoogle();
                 },
                 isLoading:
-                    state is WellcomeSignInGoogleCubitLoading ? true : false,
+                    state is SocialAuthCubitLoading ? true : false,
               ),
               CustomCircleAvatar(
                   color: kSoft,
