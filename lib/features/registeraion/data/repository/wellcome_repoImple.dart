@@ -1,15 +1,25 @@
 import 'package:dartz/dartz.dart';
+
 import 'package:filmflicks/core/errors/failure.dart';
 import 'package:filmflicks/core/success/success.dart';
 import 'package:filmflicks/features/registeraion/data/repository/wellcome_repo.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class WellcomeRepoimple implements WellcomeRepo {
   WellcomeRepoimple();
   @override
   Future<Either<Failure, Success>> signInWithFaceBook() async {
-    throw ("");
+    try {
+      final LoginResult loginResult = await FacebookAuth.instance.login();
+      final OAuthCredential facebookAuthCredential =
+          FacebookAuthProvider.credential(loginResult.accessToken!.tokenString);
+      await FirebaseAuth.instance.signInWithCredential(facebookAuthCredential);
+      return right(Success(successMessage: "Login With Facebook Success"));
+    } catch (e) {
+      return left(AuthError(e.toString()));
+    }
   }
 
   @override
