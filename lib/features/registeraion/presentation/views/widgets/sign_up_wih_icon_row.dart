@@ -14,6 +14,8 @@ class SignUpWihIconRow extends StatelessWidget {
       listener: (context, state) {
         if (state is WellcomeSignInGoogleCubitSuccess) {
           showSnackBarMethod(context, state.successMessage);
+        } else if (state is WellcomeSignInGoogleCubitFailure) {
+          print(state.errMessage);
         }
       },
       builder: (context, state) {
@@ -23,24 +25,22 @@ class SignUpWihIconRow extends StatelessWidget {
               CustomCircleAvatar(
                 color: kWhiteColor,
                 circleImage: 'assets/images/Icon - Google.svg',
-                onTap: () {},
+                onTap: () {
+                  context.read<WellcomeSignInGoogleCubit>().signInWithGoogle();
+                },
                 isLoading:
                     state is WellcomeSignInGoogleCubitLoading ? true : false,
               ),
               CustomCircleAvatar(
-                color: kSoft,
-                circleImage: 'assets/images/Icon - Apple.svg',
-                onTap: () {},
-                isLoading:
-                    state is WellcomeSignInGoogleCubitLoading ? true : false,
-              ),
+                  color: kSoft,
+                  circleImage: 'assets/images/Icon - Apple.svg',
+                  onTap: () {},
+                  isLoading: false),
               CustomCircleAvatar(
-                color: Colors.blue.withOpacity(0.6),
-                circleImage: 'assets/images/Icon - Facebook.svg',
-                onTap: () {},
-                isLoading:
-                    state is WellcomeSignInGoogleCubitLoading ? true : false,
-              ),
+                  color: Colors.blue.withOpacity(0.6),
+                  circleImage: 'assets/images/Icon - Facebook.svg',
+                  onTap: () {},
+                  isLoading: false),
             ]);
       },
     );

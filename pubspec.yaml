@@ -49,6 +49,7 @@ dependencies:
   font_awesome_flutter: ^10.7.0
   awesome_dialog: ^3.2.1
   google_sign_in: ^6.2.1
+  facebook_auth: ^0.0.3
 
 dev_dependencies:
   flutter_test:

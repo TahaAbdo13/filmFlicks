@@ -6,14 +6,19 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class WellcomeRepoimple implements WellcomeRepo {
-
-
   WellcomeRepoimple();
   @override
   Future<Either<Failure, Success>> signInWithFaceBook() async {
+    throw ("");
+  }
+
+  @override
+  Future<Either<Failure, Success>> signInWithGoogle() async {
     try {
       final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-  final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
+
+      final GoogleSignInAuthentication? googleAuth =
+          await googleUser?.authentication;
       final credential = GoogleAuthProvider.credential(
         accessToken: googleAuth?.accessToken,
         idToken: googleAuth?.idToken,
@@ -21,13 +26,7 @@ class WellcomeRepoimple implements WellcomeRepo {
       await FirebaseAuth.instance.signInWithCredential(credential);
       return Right(Success(successMessage: "Login Success"));
     } catch (e) {
-      return Left(AuthError("Login Field,Please try again"));
+      return Left(AuthError(e.toString()));
     }
-  }
-
-  @override
-  Future<Either<Failure, Success>> signInWithGoogle() {
-    
-    throw UnimplementedError();
   }
 }
