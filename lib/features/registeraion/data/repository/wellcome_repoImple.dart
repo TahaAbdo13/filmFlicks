@@ -3,7 +3,6 @@ import 'package:filmflicks/core/errors/failure.dart';
 import 'package:filmflicks/core/success/success.dart';
 import 'package:filmflicks/features/registeraion/data/repository/wellcome_repo.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-
 import 'package:google_sign_in/google_sign_in.dart';
 
 class WellcomeRepoimple implements WellcomeRepo {
