@@ -8,7 +8,7 @@ class SocialAuthCubit extends Cubit<SocialAuthCubitState> {
       : super(WellcomeSignInGoogleInitial());
 //=> SignIn With Google
   Future signInWithGoogle() async {
-    emit(SocialAuthCubitLoading());
+    emit(SocialAuthGoogleCubitLoading());
     var result = await wellcomeRepoimple.signInWithGoogle();
     result.fold((failure) {
       emit(SocialAuthCubitFailure(errMessage: failure.errMessage));
@@ -20,7 +20,7 @@ class SocialAuthCubit extends Cubit<SocialAuthCubitState> {
 
   //=> SignIn With FaceBook
   Future signInWithFacebook() async {
-    emit(SocialAuthCubitLoading());
+    emit(SocialAuthFaceBookCubitLoading());
     var result = await wellcomeRepoimple.signInWithFaceBook();
     result.fold((failure) {
       emit(SocialAuthCubitFailure(errMessage: failure.errMessage));

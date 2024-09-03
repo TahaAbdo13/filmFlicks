@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">filmflicks</string>
+  <string name="facebook_app_id">2574299369409617</string>
+  <string name="fb_login_protocol_scheme">fbdc59785f457e8d0ca8fad37abb5936d4</string>
+  <string name="facebook_client_token">509aee11f75941c49b16de911011867c</string>
+</resources>

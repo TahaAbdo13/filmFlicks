@@ -1,3 +1,4 @@
+import 'package:filmflicks/core/utils/widgets/custom_circular_progress_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -20,7 +21,7 @@ class CustomCircleAvatar extends StatelessWidget {
       child: CircleAvatar(
           backgroundColor: color,
           radius: 35,
-          child:isLoading?const CircularProgressIndicator(): SvgPicture.asset(circleImage)),
+          child:isLoading?const CustomCircularProgressIndicator(): SvgPicture.asset(circleImage)),
     );
   }
 }

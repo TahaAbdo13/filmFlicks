@@ -28,19 +28,21 @@ class SignUpWihIconRow extends StatelessWidget {
                 onTap: () {
                   context.read<SocialAuthCubit>().signInWithGoogle();
                 },
-                isLoading:
-                    state is SocialAuthCubitLoading ? true : false,
+                isLoading: state is SocialAuthGoogleCubitLoading ? true : false,
               ),
               CustomCircleAvatar(
                   color: kSoft,
                   circleImage: 'assets/images/Icon - Apple.svg',
                   onTap: () {},
-                  isLoading: false),
+                  isLoading: true),
               CustomCircleAvatar(
                   color: Colors.blue.withOpacity(0.6),
                   circleImage: 'assets/images/Icon - Facebook.svg',
-                  onTap: () {},
-                  isLoading: false),
+                  onTap: () {
+                    context.read<SocialAuthCubit>().signInWithFacebook();
+                  },
+                  isLoading:
+                      state is SocialAuthFaceBookCubitLoading ? true : false),
             ]);
       },
     );

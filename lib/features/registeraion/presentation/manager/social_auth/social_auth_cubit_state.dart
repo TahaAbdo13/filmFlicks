@@ -10,7 +10,8 @@ final class SocialAuthCubitSuccess extends SocialAuthCubitState {
   SocialAuthCubitSuccess({required this.successMessage});
 }
 
-final class SocialAuthCubitLoading extends SocialAuthCubitState {}
+final class SocialAuthGoogleCubitLoading extends SocialAuthCubitState {}
+final class SocialAuthFaceBookCubitLoading extends SocialAuthCubitState {}
 
 final class SocialAuthCubitFailure extends SocialAuthCubitState {
   final String errMessage;
