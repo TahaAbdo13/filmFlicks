@@ -3,15 +3,12 @@ import 'package:flutter/material.dart';
 
 class CustomCarouselSlider extends StatelessWidget {
   final void Function(int, CarouselPageChangedReason) onPageChanged;
-
   const CustomCarouselSlider({
     super.key,
     required this.buttonCarouselController,
     required this.onPageChanged,
   });
-
   final CarouselSliderController buttonCarouselController;
-
   @override
   Widget build(BuildContext context) {
     var hieght = MediaQuery.of(context).size.height;
@@ -20,16 +17,28 @@ class CustomCarouselSlider extends StatelessWidget {
         items: [
           Container(
             decoration: BoxDecoration(
-                color: Colors.red, borderRadius: BorderRadius.circular(24)),
+                image: const DecorationImage(
+                    image: NetworkImage(
+                        "https://resizing.flixster.com/N_mT7aXktWbwhRlhR05PQpKC4aY=/fit-in/705x460/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p169917_v_h9_ab.jpg"),
+                    fit: BoxFit.fill),
+                borderRadius: BorderRadius.circular(24)),
           ),
           Container(
             decoration: BoxDecoration(
-                color: Colors.blue, borderRadius: BorderRadius.circular(24)),
+                image: const DecorationImage(
+                    image: NetworkImage(
+                        "https://resizing.flixster.com/N_mT7aXktWbwhRlhR05PQpKC4aY=/fit-in/705x460/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p169917_v_h9_ab.jpg"),
+                    fit: BoxFit.fill),
+                borderRadius: BorderRadius.circular(24)),
           ),
           Container(
             decoration: BoxDecoration(
-                color: Colors.white, borderRadius: BorderRadius.circular(24)),
-          )
+                image: const DecorationImage(
+                    image: NetworkImage(
+                        "https://resizing.flixster.com/N_mT7aXktWbwhRlhR05PQpKC4aY=/fit-in/705x460/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p169917_v_h9_ab.jpg"),
+                    fit: BoxFit.fill),
+                borderRadius: BorderRadius.circular(24)),
+          ),
         ],
         options: CarouselOptions(
             animateToClosest: true,
