@@ -1,3 +1,4 @@
+import 'package:filmflicks/features/button_nav_bar/presentation/manager/botton_navigation_bar/botton_navigation_bar_cubit.dart';
 import 'package:filmflicks/features/button_nav_bar/presentation/views/button_nav_bar_view.dart';
 import 'package:filmflicks/features/onBoardering_view/presentaion/views/onBoardring_view.dart';
 import 'package:filmflicks/features/registeraion/data/repository/log_in_repoImple.dart';
@@ -30,7 +31,10 @@ abstract class AppRouter {
   static final GoRouter router = GoRouter(routes: [
     GoRoute(
       path: "/",
-      builder: (context, state) => const ButtonNavBarView(),
+      builder: (context, state) => BlocProvider(
+        create: (context) => BottonNavigationBarCubit(),
+        child: const ButtonNavBarView(),
+      ),
     ),
     GoRoute(
       path: kOnBoarderingScreenView,
@@ -43,7 +47,7 @@ abstract class AppRouter {
     GoRoute(
       path: kWellcomeView,
       builder: (context, state) => BlocProvider(
-        create: (context) => SocialAuthCubit(WellcomeRepoimple( )),
+        create: (context) => SocialAuthCubit(WellcomeRepoimple()),
         child: const WellcomeView(),
       ),
     ),
