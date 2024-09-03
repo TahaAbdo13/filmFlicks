@@ -1,3 +1,4 @@
+import 'package:filmflicks/features/button_nav_bar/presentation/views/button_nav_bar_view.dart';
 import 'package:filmflicks/features/onBoardering_view/presentaion/views/onBoardring_view.dart';
 import 'package:filmflicks/features/registeraion/data/repository/log_in_repoImple.dart';
 import 'package:filmflicks/features/registeraion/data/repository/sign_up_repoimple.dart';
@@ -22,17 +23,22 @@ abstract class AppRouter {
   static const kLoginView = "/loginView";
   static const kSignView = "/signView";
   static const kResetPasswordView = "/resetPasswordView";
-  static const kVerifyingView = "/verifyingViewBody";
+  static const kVerifyingView = "/verifyingView";
   static const kCreateNewPasswordview = "/createNewPassowrdView";
+  static const kBottomNaiagationBarview = "/BottomNaiagationBarview";
 
   static final GoRouter router = GoRouter(routes: [
     GoRoute(
       path: "/",
-      builder: (context, state) => const SplashView(),
+      builder: (context, state) => const ButtonNavBarView(),
     ),
     GoRoute(
       path: kOnBoarderingScreenView,
       builder: (context, state) => const OnboardringView(),
+    ),
+    GoRoute(
+      path: kBottomNaiagationBarview,
+      builder: (context, state) => const ButtonNavBarView(),
     ),
     GoRoute(
       path: kWellcomeView,
