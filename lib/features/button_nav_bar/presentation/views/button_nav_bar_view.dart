@@ -10,7 +10,7 @@ class ButtonNavBarView extends StatelessWidget {
     ];
     return Scaffold(
         bottomNavigationBar: BottomNavigationBar(
-            currentIndex: 0,
+            currentIndex: ,
             onTap: (index) {},
             items: const [
               BottomNavigationBarItem(

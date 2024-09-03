@@ -1,8 +1,7 @@
 import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
-
-part 'botton_navigation_bar_state.dart';
-
-class BottonNavigationBarCubit extends Cubit<BottonNavigationBarState> {
-  BottonNavigationBarCubit() : super(BottonNavigationBarInitial());
+class BottonNavigationBarCubit extends Cubit<int> {
+  BottonNavigationBarCubit() : super(0);
+  void updateIndex(int index) {
+    emit(index);
+  }
 }
