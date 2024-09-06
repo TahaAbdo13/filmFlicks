@@ -1,6 +1,7 @@
 import 'package:filmflicks/core/utils/constants.dart';
 import 'package:filmflicks/core/utils/styles.dart';
-import 'package:filmflicks/features/registeraion/presentation/views/widgets/custom_back_button.dart';
+import 'package:filmflicks/core/utils/widgets/custom_back.dart';
+
 import 'package:flutter/material.dart';
 
 class CustomHomeViewAppBar extends StatelessWidget {

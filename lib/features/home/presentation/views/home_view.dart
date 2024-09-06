@@ -3,11 +3,9 @@ import 'package:filmflicks/features/home/presentation/views/widgets/caroucelInde
 import 'package:filmflicks/features/home/presentation/views/widgets/custom_category_list_view_builder.dart';
 import 'package:filmflicks/features/home/presentation/views/widgets/custom_home_view_app_bar.dart';
 import 'package:filmflicks/features/home/presentation/views/widgets/custom_home_view_search.dart';
-
 import 'package:filmflicks/features/home/presentation/views/widgets/custom_most_pouller_list_view_builder.dart';
 import 'package:filmflicks/features/home/presentation/views/widgets/mostpopular_row.dart';
 import 'package:flutter/material.dart';
-
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
   @override
