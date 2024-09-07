@@ -1,4 +1,4 @@
-import 'package:dio/dio.dart';
+
 import 'package:filmflicks/core/utils/widgets/custom_app_logo_widget.dart';
 import 'package:filmflicks/core/utils/widgets/custom_app_name_widget.dart';
 import 'package:filmflicks/features/authintication/presentation/views/widgets/custom_elvated_button.dart';
