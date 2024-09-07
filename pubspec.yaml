@@ -53,6 +53,7 @@ dependencies:
   flutter_facebook_auth: ^7.0.1
   provider: ^6.1.2
   carousel_slider: ^5.0.0
+  dio: ^5.7.0
 
 dev_dependencies:
   flutter_test:
