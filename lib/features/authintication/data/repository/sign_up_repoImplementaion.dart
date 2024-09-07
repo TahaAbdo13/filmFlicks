@@ -19,11 +19,11 @@ class SignUpRepoimplementaion implements SignUpRepoInterface {
       final requestTokenModel = RequestTokenModel.fromjson(requestTokenData);
       return right(requestTokenModel);
     } catch (e) {
-      if(e is DioException){
-        
+      if (e is DioException) {
+        return Left(ServerError.fromDioExeption(e: e));
+      } else {
+        return left(ServerError(errMessage: e.toString()));
       }
-
     }
-    
   }
 }
