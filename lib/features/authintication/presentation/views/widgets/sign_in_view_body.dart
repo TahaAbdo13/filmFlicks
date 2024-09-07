@@ -7,6 +7,7 @@ import 'package:filmflicks/features/authintication/presentation/manager/sign_up_
 import 'package:filmflicks/features/authintication/presentation/views/widgets/custom_elvated_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SignInViewBody extends StatelessWidget {
   const SignInViewBody({super.key});
@@ -29,7 +30,11 @@ class SignInViewBody extends StatelessWidget {
             width: double.infinity,
             child: BlocConsumer<SignUpCubit, SignUpState>(
               listener: (context, state) {
-                if (state is SignUpCubitFailure) {
+                if (state is SignUpCubitSuccess) {
+                  Uri uri = Uri.parse(
+                      "https://www.themoviedb.org/authenticate/${state.requestTokenModel.requestToken}");
+                  launchUrl(uri);
+                } else if (state is SignUpCubitFailure) {
                   AwesomeDialog(
                           context: context,
                           customHeader: const Icon(
@@ -62,7 +67,7 @@ class SignInViewBody extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: CustomElevatedButton(
-              onPressed: () {},
+              onPressed: () async {},
               text: 'Log  In',
             ),
           )
