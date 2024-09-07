@@ -1,12 +1,15 @@
-
+import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:filmflicks/core/utils/constants.dart';
+import 'package:filmflicks/core/utils/styles.dart';
 import 'package:filmflicks/core/utils/widgets/custom_app_logo_widget.dart';
 import 'package:filmflicks/core/utils/widgets/custom_app_name_widget.dart';
+import 'package:filmflicks/features/authintication/presentation/manager/sign_up_cubit/sign_up_cubit.dart';
 import 'package:filmflicks/features/authintication/presentation/views/widgets/custom_elvated_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SignInViewBody extends StatelessWidget {
   const SignInViewBody({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -24,24 +27,33 @@ class SignInViewBody extends StatelessWidget {
           ),
           SizedBox(
             width: double.infinity,
-            child: CustomElevatedButton(
-              onPressed: () async {
-                // Dio dio = Dio();
-                //  dio.options.headers={
-                //   'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwYWQ5YTFlMGZlNTNlZjY1ZTdkZjRjN2FmY2JlODBlMSIsIm5iZiI6MTcyNTQ0ODA1OC43MjE5MjQsInN1YiI6IjY2ZDgzY2U2ODZjNmI0Y2QzODI5ZTNiZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.hvHK_KHjn8z3uP7eAiheerb7hbsfFLMIsvyjzBbXhiw'
-                  
-                //                 };
-                // var repose = await dio.get(
-                //   "https://api.themoviedb.org/3/authentication/token/new",
-            
-                  
-                // );
-               
-
-                // var token = repose.data;
-                // print("=====$token=======================");
+            child: BlocConsumer<SignUpCubit, SignUpState>(
+              listener: (context, state) {
+                if (state is SignUpCubitFailure) {
+                  AwesomeDialog(
+                          context: context,
+                          customHeader: const Icon(
+                            Icons.error,
+                            size: 50,
+                            color: Colors.red,
+                          ),
+                          title: "Error",
+                          titleTextStyle:
+                              Styles.h2.copyWith(color: kPrimaryColor),
+                          descTextStyle: Styles.h5.copyWith(color: kWhiteColor),
+                          desc: state.errMessage)
+                      .show();
+                }
               },
-              text: 'Sign Up',
+              builder: (context, state) {
+                return CustomElevatedButton(
+                  isLoading: state is SignUpCubitLoading ? true : false,
+                  onPressed: () {
+                    context.read<SignUpCubit>().signUp();
+                  },
+                  text: 'Sign Up',
+                );
+              },
             ),
           ),
           const SizedBox(

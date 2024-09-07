@@ -14,7 +14,10 @@ abstract class AppRouter {
   static final GoRouter router = GoRouter(routes: [
     GoRoute(
       path: "/",
-      builder: (context, state) => const SignInView(),
+      builder: (context, state) => BlocProvider(
+        create: (context) => SignUpCubit(SignUpRepoimplementaion(apiServices: ApiServices(dio: Dio()))),
+        child: const SignInView(),
+      ),
     ),
     GoRoute(
       path: kOnBoarderingScreenView,
