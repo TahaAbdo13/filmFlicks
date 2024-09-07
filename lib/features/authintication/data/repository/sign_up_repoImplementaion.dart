@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 import 'package:filmflicks/core/errors/failure.dart';
 import 'package:filmflicks/core/utils/services/api_services.dart';
 import 'package:filmflicks/features/authintication/data/models/request_token_model.dart';
@@ -11,9 +12,18 @@ class SignUpRepoimplementaion implements SignUpRepoInterface {
   @override
   Future<Either<Failure, RequestTokenModel>> requestokenMehtod() async {
     try {
-      await apiServices.get(
-          url: "https://api.themoviedb.org/3/authentication/token/new");
-    } catch (e) {}
-    throw UnimplementedError();
+      Map<String, dynamic> requestTokenData = await apiServices.get(
+          url: "https://api.themoviedb.org/3/authentication/token/new",
+          authorization:
+              "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwYWQ5YTFlMGZlNTNlZjY1ZTdkZjRjN2FmY2JlODBlMSIsIm5iZiI6MTcyNTQ0ODA1OC43MjE5MjQsInN1YiI6IjY2ZDgzY2U2ODZjNmI0Y2QzODI5ZTNiZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.hvHK_KHjn8z3uP7eAiheerb7hbsfFLMIsvyjzBbXhiw");
+      final requestTokenModel = RequestTokenModel.fromjson(requestTokenData);
+      return right(requestTokenModel);
+    } catch (e) {
+      if(e is DioException){
+        
+      }
+
+    }
+    
   }
 }
