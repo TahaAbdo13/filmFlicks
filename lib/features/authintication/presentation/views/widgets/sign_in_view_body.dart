@@ -33,7 +33,11 @@ class SignInViewBody extends StatelessWidget {
                 if (state is SignUpCubitSuccess) {
                   Uri uri = Uri.parse(
                       "https://www.themoviedb.org/authenticate/${state.requestTokenModel.requestToken}");
+
+
                   launchUrl(uri);
+
+                  //هحتاج اتعلم Deep linking عشان ارجع للربرنامج بتاعي بعد عملية المصادقة
                 } else if (state is SignUpCubitFailure) {
                   AwesomeDialog(
                           context: context,
