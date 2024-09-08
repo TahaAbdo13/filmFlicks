@@ -9,8 +9,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class SignInViewBody extends StatelessWidget {
+class SignInViewBody extends StatefulWidget {
   const SignInViewBody({super.key});
+
+  @override
+  State<SignInViewBody> createState() => _SignInViewBodyState();
+}
+
+class _SignInViewBodyState extends State<SignInViewBody> {
+  @override
+  void initState() {
+    context.read<SignUpCubit>().handleDeepLink();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -33,7 +45,6 @@ class SignInViewBody extends StatelessWidget {
                 if (state is SignUpCubitSuccess) {
                   Uri uri = Uri.parse(
                       "https://www.themoviedb.org/authenticate/${state.requestTokenModel.requestToken}");
-
 
                   launchUrl(uri);
 
