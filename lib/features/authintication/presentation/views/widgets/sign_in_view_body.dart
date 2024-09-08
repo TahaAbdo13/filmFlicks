@@ -1,4 +1,5 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:filmflicks/core/utils/app_router.dart';
 import 'package:filmflicks/core/utils/constants.dart';
 import 'package:filmflicks/core/utils/styles.dart';
 import 'package:filmflicks/core/utils/widgets/custom_app_logo_widget.dart';
@@ -7,6 +8,7 @@ import 'package:filmflicks/features/authintication/presentation/manager/sign_up_
 import 'package:filmflicks/features/authintication/presentation/views/widgets/custom_elvated_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SignInViewBody extends StatefulWidget {
@@ -44,9 +46,10 @@ class _SignInViewBodyState extends State<SignInViewBody> {
               listener: (context, state) {
                 if (state is SignUpCubitSuccess) {
                   Uri uri = Uri.parse(
-                      "https://www.themoviedb.org/authenticate/${state.requestTokenModel.requestToken}");
+                      "https://www.themoviedb.org/authenticate/${state.requestTokenModel.requestToken}?redirect_to=filmflicks://auth");
 
                   launchUrl(uri);
+                  GoRouter.of(context).push(AppRouter.kBottomNaiagationBarview);
 
                   //هحتاج اتعلم Deep linking عشان ارجع للربرنامج بتاعي بعد عملية المصادقة
                 } else if (state is SignUpCubitFailure) {

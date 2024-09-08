@@ -3,7 +3,6 @@ import 'package:filmflicks/core/utils/services/api_services.dart';
 import 'package:filmflicks/features/authintication/data/repository/sign_up_repoImplementaion.dart';
 import 'package:filmflicks/features/authintication/presentation/manager/sign_up_cubit/sign_up_cubit.dart';
 import 'package:filmflicks/features/authintication/presentation/views/sign_in_view.dart';
-import 'package:filmflicks/features/button_nav_bar/presentation/manager/botton_navigation_bar/botton_navigation_bar_cubit.dart';
 import 'package:filmflicks/features/button_nav_bar/presentation/views/button_nav_bar_view.dart';
 import 'package:filmflicks/features/onBoardering_view/presentaion/views/onBoardring_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,10 +16,11 @@ abstract class AppRouter {
   static final GoRouter router = GoRouter(routes: [
     GoRoute(
         path: "/",
-        builder: (context, state) => BlocProvider(
-              create: (context) => BottonNavigationBarCubit(),
-              child: const ButtonNavBarView(),
-            )),
+         builder: (context, state) => BlocProvider(
+        create: (context) => SignUpCubit(
+            SignUpRepoimplementaion(apiServices: ApiServices(dio: Dio()))),
+        child: const SignInView(),
+      ),),
     GoRoute(
       path: kOnBoarderingScreenView,
       builder: (context, state) => const OnboardringView(),

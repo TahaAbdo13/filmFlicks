@@ -29,17 +29,34 @@ class SignUpRepoimplementaion implements SignUpRepoInterface {
   }
 
   @override
-  Future<Either<Failure, RequestTokenModel>> handleDeepLink() async {
-    try {
-      final uri = await getInitialUri();
-    
-        final requestToken = uri!.queryParameters['request_token'];
-        final expires_at = uri.queryParameters['expires_at'];
+ Future<Either<Failure, RequestTokenModel>> handleDeepLink() async {
+  try {
+    // الحصول على الـ URI عند فتح التطبيق من خلال Deep Link
+    final uri = await getInitialUri();
+
+    // التأكد من أن uri ليس null
+    if (uri != null) {
+      final requestToken = uri.queryParameters['request_token'];
+      final expiresAt = uri.queryParameters['expires_at'];
+
+      // التأكد من أن القيم ليست null
+      if (requestToken != null && expiresAt != null) {
+        // إنشاء النموذج بعد التحقق من البيانات
         RequestTokenModel requestTokenModel = RequestTokenModel(
-            expiresAt: requestToken!, requestToken: expires_at!);
-       return right(requestTokenModel);
-    } catch (e) {
-      return left(ServerError(errMessage: e.toString()));
+          expiresAt: expiresAt,  // التعيين الصحيح لقيمة expires_at
+          requestToken: requestToken,  // التعيين الصحيح لقيمة request_token
+        );
+        return right(requestTokenModel);  // الإرجاع الصحيح
+      } else {
+        // في حالة وجود بيانات مفقودة
+        return left(ServerError(errMessage: 'Missing request_token or expires_at'));
+      }
+    } else {
+      return left(ServerError(errMessage: 'No URI found'));
     }
+  } catch (e) {
+    return left(ServerError(errMessage: e.toString()));
   }
+}
+
 }
