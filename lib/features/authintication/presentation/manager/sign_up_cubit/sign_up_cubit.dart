@@ -16,4 +16,14 @@ class SignUpCubit extends Cubit<SignUpState> {
       emit(SignUpCubitSuccess(requestTokenModel: requestTokenModel));
     });
   }
+
+  Future handleDeepLink() async {
+    emit(SignUpCubitLoading());
+    var result = await signUpRepoInterface.handleDeepLink();
+    result.fold((failure) {
+      emit(SignUpCubitFailure(errMessage: failure.errMessage));
+    }, (requestTokenModel) {
+      emit(SignUpCubitSuccess(requestTokenModel: requestTokenModel));
+    });
+  }
 }
